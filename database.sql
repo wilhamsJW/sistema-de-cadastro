@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 24-Jun-2020 às 04:37
+-- Tempo de geração: 25-Jun-2020 às 17:35
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.6
 
@@ -41,7 +41,29 @@ CREATE TABLE `clientes` (
 INSERT INTO `clientes` (`nome`, `email`, `senha`, `id`) VALUES
 ('Wilhams', 'wilhams.dev@gmail.com', 'www', 1),
 ('MC2', 'MC2@MC2', 'mc2', 2),
-('Wilhams', 'Wilhamsmeira@gmail.com', 'qq', 3);
+('Wilhams', 'Wilhamsmeira@gmail.com', 'qq', 3),
+('ronaldo', 'rodrigo@ppp', 'ee', 5),
+('ronaldo', 'rrrr@errrr', 're', 6),
+('andré', 'andr@andr', '123', 7),
+('andré', 'andr@andro', 'uu', 9),
+('jose', 'jose@jose', 'as', 11),
+('maria', 'maria@maria', 'as', 12),
+('bernadete', 'bernadete@bernadete', 'as', 14);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `title` varchar(50) NOT NULL,
+  `start_date` varchar(10) NOT NULL,
+  `last_date` varchar(10) NOT NULL,
+  `description` varchar(150) NOT NULL,
+  `stats` varchar(20) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tabelas despejadas
@@ -55,6 +77,12 @@ ALTER TABLE `clientes`
   ADD UNIQUE KEY `email` (`email`);
 
 --
+-- Índices para tabela `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de tabelas despejadas
 --
 
@@ -62,7 +90,13 @@ ALTER TABLE `clientes`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT de tabela `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
