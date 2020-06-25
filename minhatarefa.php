@@ -2,7 +2,6 @@
 //include_once 'banco_de_dados/create.php';
 session_start(); //é obrigatório starta a var session pra poder usala nos arquivos que se quer usar
 ?>
-
 <?php include_once 'tarefa.init.php'; ?>
 
 <?php 
@@ -15,6 +14,7 @@ session_start(); //é obrigatório starta a var session pra poder usala nos arqu
 
 
 
+<!--Menu-->
 <div class="">
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
     <div class="container">
@@ -42,8 +42,9 @@ session_start(); //é obrigatório starta a var session pra poder usala nos arqu
   </nav>
 </div>
 
-<form action="minhatarefa.php" method="POST">
-<div class="container py-5 col-6">
+
+<form action="tarefa.init.php" method="POST">
+<div class="container py-5 col-8">
   <div class="border border-primary py-5 row col py-3 px-md-5 my-5">
   <div class="container">
 
@@ -57,42 +58,80 @@ session_start(); //é obrigatório starta a var session pra poder usala nos arqu
     ?>
   </div>
 
-
-    <label for="inputEmail3" class="col-form-label"> Título</label>
+    <!--Edição do título-->
+    <label for="inputEmail3" class="col-form-label"> Título da tarefa</label>
     <div class="input-group mb-3">
       <input type="text" name="title" class="form-control" placeholder="Dê um título ao seu projeto" aria-label="Dê um título ao seu projeto" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Alterar</button>
+  </div>
+  <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Excluir existente</button>
+  </div>
     </div>
+  
+
+    <!--Edição da data-->
     <label for="inputEmail3" class="col-form-label">Data do ínicio</label>
     <div class="input-group mb-3">
-      <input type="date" class="form-control" placeholder="Insira a data" aria-label="Insira a data" aria-describedby="button-addon2">
+      <input type="date" name="start_date" class="form-control" placeholder="Insira a data" aria-label="Insira a data" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Alterar</button>
+  </div>
+  <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Excluir existente</button>
+  </div>
     </div>
     <label for="inputEmail3" class="col-form-label">Data do término</label>
     <div class="input-group mb-3">
-      <input type="date" class="form-control" placeholder="Insira a data" aria-label="Insira a data" aria-describedby="button-addon2">
+      <input type="date" name="last_date" class="form-control" placeholder="Insira a data" aria-label="Insira a data" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Alterar</button>
+  </div>
+  <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Excluir existente</button>
+  </div>
     </div>
 
-    <form class="was-validated">
-      <div class="mb-3">
-        <label for="validationTextarea">Descrição</label>
-        <textarea class="form-control is-invalid" id="validationTextarea" placeholder="conte-nos sobre seu projeto" required></textarea>
-        <!--<div class="invalid-feedback">
-      Please enter a message in the textarea.
-    </div> -->
-      </div>
+
+    <label for="inputEmail3" class="col-form-label">Descrição</label>
+    <div class="input-group mb-3">
+      <input type="text" name="description" class="form-control" placeholder="conte-nos sobre sua tarefa" aria-label="Insira sua tarefa" aria-describedby="button-addon2">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Alterar</button>
+  </div>
+  <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Excluir existente</button>
+  </div>
+    </div>
+
+       <!--Edição do status-->
        <div class="input-group mb-3">
         <select class="custom-select" ">
     <option selected>Edite seu status</option>
-    <option value=" 1">On-line</option>
+    <option name="stats" value=" 1">On-line</option>
           <option value="2">Ausente</option>
           <option value="3">Ocupado</option>
+          <!--Botôes-->
+          <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Alterar</button>
+  </div>
+  <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Excluir existente</button>
+  </div>
         </select>
-        <div class="input-group-append">
-          <label class="input-group-text" for="inputGroupSelect02">Status</label>
+      <div class="input-group-append">
+          <label class="input-group-text" for="inputGroupSelect02">Status</label>  
         </div>
       </div>
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Salvar</button>
-      </div>
+       <!--Botão-->
+         <div class="col-lg-12" style="text-align: right;">
+            <input class="btn btn-primary" type="submit" value="Salvar tudo">
+          </div>
+
+
+  </div>
+</div>
 
   </div>
 </div>

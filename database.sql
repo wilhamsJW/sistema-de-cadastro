@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25-Jun-2020 às 17:35
+-- Tempo de geração: 26-Jun-2020 às 01:56
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.6
 
@@ -48,7 +48,8 @@ INSERT INTO `clientes` (`nome`, `email`, `senha`, `id`) VALUES
 ('andré', 'andr@andro', 'uu', 9),
 ('jose', 'jose@jose', 'as', 11),
 ('maria', 'maria@maria', 'as', 12),
-('bernadete', 'bernadete@bernadete', 'as', 14);
+('bernadete', 'bernadete@bernadete', 'as', 14),
+('', '', '', 15);
 
 -- --------------------------------------------------------
 
@@ -57,13 +58,23 @@ INSERT INTO `clientes` (`nome`, `email`, `senha`, `id`) VALUES
 --
 
 CREATE TABLE `tasks` (
-  `title` varchar(50) NOT NULL,
-  `start_date` varchar(10) NOT NULL,
-  `last_date` varchar(10) NOT NULL,
-  `description` varchar(150) NOT NULL,
-  `stats` varchar(20) NOT NULL,
+  `title` varchar(50) DEFAULT NULL,
+  `start_date` varchar(8) DEFAULT NULL,
+  `last_date` varchar(8) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
+  `stats` varchar(10) DEFAULT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tasks`
+--
+
+INSERT INTO `tasks` (`title`, `start_date`, `last_date`, `description`, `stats`, `id`) VALUES
+('Hello MC2', NULL, NULL, NULL, NULL, 1),
+('Hello MC2', NULL, NULL, NULL, NULL, 2),
+('Hello MC2', NULL, NULL, NULL, NULL, 3),
+('Hello MC2', '2222-02-', ' 2222-02', 'A MC2 Performance oferece consultoria empresarial, com foco em alavancar negócios e resultados, através de Modelagem e Automação de Processos de Negócio, Governança Corporativa e de TI, Diagnóstico de', ' ', 4);
 
 --
 -- Índices para tabelas despejadas
@@ -90,13 +101,13 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

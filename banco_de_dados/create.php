@@ -11,10 +11,12 @@ if (isset($_POST["nome"])) {
 
 
     $inserir = "INSERT INTO clientes"; //lembre-se q esses espaços no final são importantes pq este .= se trata de uma concatenação
-    $inserir .= "(nome, email, senha ) ";
+    $inserir .= "(nome, email, senha ) "; //coluna criada no db na tabela clientes
     $inserir .= "VALUES ";
-    $inserir .= "('$nome', '$email', '$senha2')";
-    $operacao_inserir = mysqli_query($conecta, $inserir);
+    $inserir .= "('$nome', '$email', '$senha2')"; //var q guardam os valores do usuário
+
+    $operacao_inserir = mysqli_query($conecta, $inserir);//conecta com o db, $operacao_inserir = agora tem acesso ao db 
+
     if (!$operacao_inserir) {
         die("Error no banco de dados ou email já cadastrado");
       
