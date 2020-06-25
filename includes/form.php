@@ -1,7 +1,7 @@
 <div class="container bg-light py-5">
   <div class="container  border border-primary py-5">
     <div class="col-md-6 container clearfix">
-      <form action="login2.php" method="POST" class="py-">
+      <form action="banco_de_dados/create.php" method="POST" class="py-">
         <fieldset class="formulario">
           <legend><img src="img/avatar.jpg" alt="[imagem]" width="100"></legend>
           <h1 class="text-center">Cadastro</h1>

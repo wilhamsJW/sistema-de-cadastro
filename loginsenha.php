@@ -22,6 +22,7 @@
         if( empty($informacao) ) { //empty = verifica se a var está vazia
              $mensagem = "Login sem sucesso";   
         } else {
+            //Rotina de saudação foi iniciada aqui
             $_SESSION["user"] = $informacao["nome"]; //$informacao tem todo o acesso ao banco de dados
              header("location: minhatarefa.php");   
         }

@@ -18,5 +18,7 @@ if (isset($_POST["nome"])) {
     if (!$operacao_inserir) {
         die("Error no banco de dados ou email já cadastrado");
       
+    } else {
+        header("location:../login2.php");
     }
 }
