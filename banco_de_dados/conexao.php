@@ -24,5 +24,3 @@ $conecta->set_charset('utf8');
       
   }
   */
-
-?>

@@ -1,6 +1,6 @@
 <div class="">
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
-      <div class="container">
+  <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+    <div class="container">
       <a class="navbar-brand" href="#"><img width="200px" height="50px" src="img/logomc2_.jpg"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -15,12 +15,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="minhaarea2.php"></a>
-          </li>  
-          <li class="nav-item">
-            <a class="nav-link" href="listaTarefa.php">Lista de Tarefas</a>
-          </li> 
+          </li>
         </ul>
       </div>
-      </div>
-    </nav>
-   </div> 
+    </div>
+  </nav>
+</div>
