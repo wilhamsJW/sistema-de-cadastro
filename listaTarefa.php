@@ -35,8 +35,23 @@
     </div>
   </nav>
 </div>
+</div>
+<div class="container col-3 py-5">
+  <div class="">
+<?php 
+  //rotina de saudação, a session está sendo configurada no arquivo loginsenha, lá a session obteve acesso ao banco de dados e me retornar o que eu quiser
+      if (isset($_SESSION["user"])) {
+    ?>
+      <label for="inputEmail3" class="col-form-label"><h3><?php echo ' Tarefas de, ' . $_SESSION["user"] . '!' ; ?></h3></label>
+   <?php
+   }
+    ?>
+  </div>
+</div>
 
+  
 <div class="container py-5 col-6">
+  
 <div class="border border-primary py-5 row col py-3 px-md-5 my-5">
 
   <table class="table table-bordered">
