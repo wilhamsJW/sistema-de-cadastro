@@ -107,9 +107,9 @@ session_start(); //é obrigatório starta a var session pra poder usala nos arqu
 
        <!--Edição do status-->
        <div class="input-group mb-3">
-        <select class="custom-select" ">
+        <select name="stats"  class="custom-select" ">
     <option selected>Edite seu status</option>
-    <option name="stats" value=" 1">On-line</option>
+    <option value=" 1">On-line</option>
           <option value="2">Ausente</option>
           <option value="3">Ocupado</option>
           <!--Botôes-->

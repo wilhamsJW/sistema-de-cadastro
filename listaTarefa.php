@@ -1,5 +1,6 @@
 <?php include_once 'includes/header.php'; session_start(); ?>
-<?php include_once 'tarefa.init.php'; ?>
+<?php include_once 'banco_de_dados/conexao.php' ?>
+
 
 
 <?php 
@@ -8,6 +9,14 @@
     header("location:login2.php"); //e redirecionará o usuario pra a página desejada, porém se a var estiver configurada o usuário poderá acessala livremente, o que determina se ela vai tá configurada ou não
   }                               //é justamente a ação do login pq só assim a session entra em ação e passa a ser definida ou setada ou configurada
 ?>
+
+
+<?php 
+  $consulta = "SELECT * FROM tasks ";
+  $acesso = mysqli_query($conecta, $consulta);
+
+?>
+
 
 <div class="">
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -62,24 +71,24 @@
         <th scope="col">Data Final</th>
         <th scope="col">Descrição</th>
         <th scope="col">Status</th>
+        <th scope="col">Usuário dessa tarefa</th>
       </tr>
     </thead>
     <tbody>
       <?php
-      if(isset( $arrayList) && !empty($arrayList)){
-        foreach($arrayList as $task){         //$arrayList tem todos os dados da tabela do banco de dados, para entender  melhor verifique o arquivo tasks-list-init.php
+            while($registro =  mysqli_fetch_assoc($acesso)) { 
           ?>
             <tr> <!--todos esses valores são da tabela no db, estou mostrando eles, está sendo mostrado em uma tabela ao usuário -->             
-              <td><?php echo $task['title'] ?></td>  
-              <td><?php echo $task['start_date'] ?></td>
-              <td><?php echo $task['last_date'] ?></td>
-              <td><?php echo $task['description'] ?></td>      
-              <td><?php echo $task['stats'] ?></td>      
+              <td><?php echo $registro['title'] ?></td>  
+              <td><?php echo $registro['start_date'] ?></td>
+              <td><?php echo $registro['last_date'] ?></td>
+              <td><?php echo $registro['description'] ?></td>      
+              <td><?php echo $registro['stats'] ?></td>  
+              <td><?php echo $registro['stats'] ?></td>     
             </tr>
 
       <?php
         }
-      }
       ?>
       
     </tbody>
