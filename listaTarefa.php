@@ -1,5 +1,5 @@
-<?php include_once 'includes/header.php'; session_start(); ?>
-<?php include_once 'banco_de_dados/conexao.php' ?>
+<?php include_once 'includes/header.php'; ?>
+<?php include_once 'banco_de_dados/read.php' ?>
 
 
 
@@ -8,13 +8,6 @@
   if (!isset($_SESSION["user"])) {  //o uso do não lógico q é esse ponto de exclamação, verifica se a var não está definida, como realmente ela não vai estar vai ser true 
     header("location:login2.php"); //e redirecionará o usuario pra a página desejada, porém se a var estiver configurada o usuário poderá acessala livremente, o que determina se ela vai tá configurada ou não
   }                               //é justamente a ação do login pq só assim a session entra em ação e passa a ser definida ou setada ou configurada
-?>
-
-
-<?php 
-  $consulta = "SELECT * FROM tasks ";
-  $acesso = mysqli_query($conecta, $consulta);
-
 ?>
 
 
@@ -28,7 +21,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="minhatarefa.php">Editar tarefa</a>
+            <a class="nav-link" href="minhatarefa1.php">Editar tarefa</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="minhaarea2.php"></a>

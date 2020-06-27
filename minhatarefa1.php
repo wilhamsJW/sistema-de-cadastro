@@ -1,16 +1,14 @@
-<?php include_once 'includes/header.php';
-//include_once 'banco_de_dados/create.php';
-session_start(); //é obrigatório starta a var session pra poder usala nos arquivos que se quer usar
-?>
-<?php include_once 'tarefa.init.php'; ?>
+<?php include_once 'includes/header.php'?>
+
 
 <?php 
+session_start(); 
   //proteção das páginas para que o usuário não acesse pela url o que vc não quer q ele veja ou seja vc deve proteger todas as páginas após o login
-  if (!isset($_SESSION["user"])) {  //o uso do não lógico q é esse ponto de exclamação, verifica se a var não está definida, como realmente ela não vai estar vai ser true 
+  if ( !isset($_SESSION["user"])) {  //o uso do não lógico q é esse ponto de exclamação, verifica se a var não está definida, como realmente ela não vai estar vai ser true 
     header("location:login2.php"); //e redirecionará o usuario pra a página desejada, porém se a var estiver configurada o usuário poderá acessala livremente, o que determina se ela vai tá configurada ou não
   }                               //é justamente a ação do login pq só assim a session entra em ação e passa a ser definida ou setada ou configurada
+
 ?>
-    
 
 
 
@@ -43,10 +41,10 @@ session_start(); //é obrigatório starta a var session pra poder usala nos arqu
 </div>
 
 
-<form action="tarefa.init.php" method="POST">
-<div class="container py-5 col-8">
-  <div class="border border-primary py-5 row col py-3 px-md-5 my-5">
-  <div class="container">
+<form action="banco_de_dados/create.php" method="POST">
+   <div class="container py-5 col-8">
+   <div class="border border-primary py-5 row col py-3 px-md-5 my-5">
+   <div class="container">
 
   <?php 
   //rotina de saudação, a session está sendo configurada no arquivo loginsenha, lá a session obteve acesso ao banco de dados e me retornar o que eu quiser

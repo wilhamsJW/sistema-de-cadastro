@@ -8,7 +8,7 @@
           <div class="form-group row">
             <label for="inputEmail3" class="col-sm-2 col-form-label">Nome</label>
             <div class="col-sm-10">
-              <input type="name" name="nome" class="form-control" placeholder="Nome do usuário">
+              <input type="name" name="name" class="form-control" placeholder="Nome do usuário">
             </div>
           </div>
           <div class="form-group row">
