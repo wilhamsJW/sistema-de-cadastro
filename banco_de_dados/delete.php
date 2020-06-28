@@ -2,10 +2,11 @@
 <?php session_start();  //inicialição var de sessão ?>
 
 <?php 
+    $id = $_GET['id']; //recebendo dados pelo GET via url, esta id contém as id do elemento a ser deletado, é encessário pegar ela pra pode excluir exatamente o item desejado
     $consulta = "SELECT * FROM tasks ";          //selecionando tabela tasks
     $acess = mysqli_query($conecta, $consulta); //conectando com o db, $conecta é uma var de conexão com o db, ela foi criada no arquivo conexão
 
-    $sql = "DELETE FROM tasks WHERE id=7";
+    $sql = "DELETE FROM tasks WHERE id = $id";
     $query = mysqli_query($conecta, $sql); //fazendo a query, concetando com o db
     $assoc = mysqli_fetch_assoc($acess);  //transformando $query em um array associativo para poder pegar informações no banco de dados com a var recém criada $assoc
                                       

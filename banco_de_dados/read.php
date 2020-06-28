@@ -3,6 +3,6 @@
 
 <?php 
   // selecionando a tabela tasks do do para mostrar os dados no browser no arquivo lista tarefa
-  $consulta = "SELECT * FROM tasks limit 10 ";
+  $consulta = "SELECT * FROM tasks limit 5 ";
   $acesso = mysqli_query($conecta, $consulta);
 ?>

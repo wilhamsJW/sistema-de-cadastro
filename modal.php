@@ -1,17 +1,6 @@
 <?php include_once 'includes/header.php'?>
 
 
-<?php 
-session_start(); 
-  //proteção das páginas para que o usuário não acesse pela url o que vc não quer q ele veja ou seja vc deve proteger todas as páginas após o login
-  if ( !isset($_SESSION["user"])) {  //o uso do não lógico q é esse ponto de exclamação, verifica se a var não está definida, como realmente ela não vai estar vai ser true 
-    header("location:login2.php"); //e redirecionará o usuario pra a página desejada, porém se a var estiver configurada o usuário poderá acessala livremente, o que determina se ela vai tá configurada ou não
-  }                               //é justamente a ação do login pq só assim a session entra em ação e passa a ser definida ou setada ou configurada
-
-?>
-
-
-
 <!--Menu-->
 <div class="">
   <nav class="navbar navbar-expand-lg navbar-light bg-primary">
@@ -23,25 +12,20 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="minhatarefa1.php">Criar Tarefa</a>
+            <a class="nav-link" href="listatarefa.php"><- Voltar para lista de Tarefas</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="minhaarea2.php"></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="listaTarefa.php">Lista de Tarefas</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout.php">Logout</a>
-          </li>
+         
+      
         </ul>
       </div>
     </div>
   </nav>
 </div>
 
-
-<form action="banco_de_dados/create.php" method="POST">
+<!-- Formulário -->
+<?php $id = $_GET['id'];//guardando a id da url, para enviar para update.php para saber qual é a url a ser editada
+      echo $id; ?>
+<form action="banco_de_dados/update.php?id=<?php echo $id ?>" method="POST">
    <div class="container py-5 col-8">
    <div class="border border-primary py-5 row col py-3 px-md-5 my-5">
 
@@ -108,15 +92,24 @@ session_start();
           <label class="input-group-text" for="inputGroupSelect02">Status</label>  
         </div>
       </div>
+
        <!--Botão-->
+     
          <div class="col-lg-12" style="text-align: right;">
-            <input class="btn btn-primary" type="submit" value="Salvar tudo">
+            <button class="btn btn-primary" type="submit">Editar</button>
+           
           </div>
 
 
+      
   </div>
 </div>
 
   </div>
 </div>
 </form>
+
+
+
+
+<?php include_once 'includes/footer.php' ?>

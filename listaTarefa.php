@@ -1,5 +1,7 @@
-<?php include_once 'includes/header.php'; ?>
+<?php include_once 'includes/header.php' ?>
 <?php include_once 'banco_de_dados/read.php' ?>
+
+
 
 
 
@@ -22,10 +24,7 @@
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="minhatarefa1.php">Editar tarefa</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="minhaarea2.php"></a>
+            <a class="nav-link" href="minhatarefa1.php">Criar tarefa</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="listaTarefa.php">Lista de Tarefas</a>
@@ -60,12 +59,13 @@
   <table class="table table-bordered">
     <thead>
       <tr>
-        <th scope="col">title</th>
-        <th scope="col">Data Incial</th>
+        <th scope="col">Title</th>
+        <th scope="col">Data Inicial</th>
         <th scope="col">Data Final</th>
         <th scope="col">Descrição</th>
         <th scope="col">Status</th>
-        <th scope="col">Usuário dessa tarefa</th>
+        <th scope="col">Usuário</th>
+        <th scope="col">Editar</th>
         <th scope="col">Excluir</th>
         
       </tr>
@@ -73,16 +73,29 @@
     <tbody>
       <?php
             while($registro =  mysqli_fetch_assoc($acesso)) { 
+              $id = $registro['id']; //está me enviando a id pela url do botão delete
           ?>
             <tr> <!--todos esses valores são da tabela no db, estou mostrando eles, está sendo mostrado em uma tabela ao usuário -->             
               <td><?php echo $registro['title'] ?></td>  
-              <td><?php echo $registro['start_date'] ?></td>
-              <td><?php echo $registro['last_date'] ?></td>
-              <td><?php echo $registro['description'] ?></td>      
+              <td><?php echo $registro['date_incio'] ?></td>
+              <td><?php echo $registro['date_end'] ?></td>
+              <td><?php echo $registro['descri'] ?></td>      
               <td><?php echo $registro['stats'] ?></td>  
-              <td><?php echo $registro['id'] ?></td>    
-              <td><a href="banco_de_dados/delete.php"><img src="img/icon_delete.png" alt="[imagem]" width="25"></a></td>    
-            </tr>
+              <td><?php echo $_SESSION["user"] ?></td>
+              <!--Button Edit-->
+              <td>
+              <a href="modal.php?id=<?php echo $id ?>"  style="color:blue" ><button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button></a>
+              </td>  
+              <!--Button Delete-->
+              <td>
+              <a href="banco_de_dados/delete.php?id=<?php echo $id ?>" style="color:tomato" ><button class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button></a>
+              </td> 
+
+
+              <!--&nbsp; isto é um código q seria usado dentro dos ícones do botão caso eu colocasse um nome no botão e ícone, 
+              esse código evitaria ficar o ícone e o nome colados
+              O caractere &nbsp; "Non-breaking space" apesar de não ser visualizado pelo leitor tem uma função importante em HTML. 
+              Como o nome do caractere diz "espaço sem quebra" é utilizado para: Preencher um espaço vazio (sem conteúdo) de uma tag HTML.  -->
 
       <?php
         }
@@ -90,5 +103,8 @@
       
     </tbody>
   </table>
+
+
+
 </div>
 </div>

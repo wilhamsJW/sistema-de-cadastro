@@ -25,24 +25,24 @@ if (isset($_POST["name"])) {
     }
 }
 
-//inserção no db
+//inserção no db do arquivo minhatarefa1.php
 if( isset($_POST["title"])) {
 
     $title        = $_POST["title"];
-    $start_date   = $_POST["start_date"];
-    $last_date    = $_POST["last_date"];
-    $description  = $_POST["description"];
+    $date_incio   = $_POST["date_incio"];
+    $date_end     = $_POST["date_end"];
+    $descri       = $_POST["descri"];
     $stats        = $_POST["stats"];
 
 
     $sql = "INSERT INTO tasks ";
-    $sql .= " ( title, start_date, last_date, description, stats  )"; //coluna da tabela tasks
+    $sql .= " ( title, date_incio, date_end, descri, stats  )"; //coluna da tabela tasks
     $sql .= " VALUES ";
-    $sql .= " ( '$title', '$start_date', ' $last_date', '$description', '$stats' ) "; //var que contém o valor digitado pelo usuario, essa var foi declarada no html
+    $sql .= " ( '$title', '$date_incio', ' $date_end', '$descri', '$stats' ) "; //var que contém o valor digitado pelo usuario, essa var foi declarada no html
     
 
     $acesso = mysqli_query($conecta, $sql);   //concetando com o db
-    $assoc = mysqli_fetch_assoc($acesso);   //transformando tudo em um array / $assoc = agora tem autonomia sobre o banco de dados 
+    //$assoc = mysqli_fetch_assoc($acesso);   //transformando tudo em um array / $assoc = agora tem autonomia sobre o banco de dados 
     //$acesso =  mysqli_fetch_assoc($tasks);
     if(!$acesso) {
         die("Tarefa não adicionada!");
