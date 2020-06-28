@@ -3,6 +3,7 @@
 
 
 
+
 <?php 
   //proteção das páginas para que o usuário não acesse pela url o que vc não quer q ele veja ou seja vc deve proteger todas as páginas após o login
   if (!isset($_SESSION["user"])) {  //o uso do não lógico q é esse ponto de exclamação, verifica se a var não está definida, como realmente ela não vai estar vai ser true 
@@ -52,7 +53,7 @@
 </div>
 
   
-<div class="container py-5 col-6">
+<div class="container py-5 col-11">
   
 <div class="border border-primary py-5 row col py-3 px-md-5 my-5">
 
@@ -65,6 +66,8 @@
         <th scope="col">Descrição</th>
         <th scope="col">Status</th>
         <th scope="col">Usuário dessa tarefa</th>
+        <th scope="col">Excluir</th>
+        
       </tr>
     </thead>
     <tbody>
@@ -77,7 +80,8 @@
               <td><?php echo $registro['last_date'] ?></td>
               <td><?php echo $registro['description'] ?></td>      
               <td><?php echo $registro['stats'] ?></td>  
-              <td><?php echo $registro['stats'] ?></td>     
+              <td><?php echo $registro['id'] ?></td>    
+              <td><a href="banco_de_dados/delete.php"><img src="img/icon_delete.png" alt="[imagem]" width="25"></a></td>    
             </tr>
 
       <?php

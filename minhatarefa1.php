@@ -23,7 +23,7 @@ session_start();
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="minhatarefa.php">Editar tarefa</a>
+            <a class="nav-link" href="minhatarefa1.php">Editar tarefa</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="minhaarea2.php"></a>
@@ -41,13 +41,14 @@ session_start();
 </div>
 
 
-<form action="banco_de_dados/create.php" method="POST">
+<form action="banco_de_dados/update.php" method="POST">
    <div class="container py-5 col-8">
    <div class="border border-primary py-5 row col py-3 px-md-5 my-5">
-   <div class="container">
 
+   
+   <div class="container">
   <?php 
-  //rotina de saudação, a session está sendo configurada no arquivo loginsenha, lá a session obteve acesso ao banco de dados e me retornar o que eu quiser
+  //rotina de saudação, a session está sendo configurada no arquivo read2.php, lá a session obteve acesso ao banco de dados e me retornar o que eu quiser
       if (isset($_SESSION["user"])) {
     ?>
       <label for="inputEmail3" class="col-form-label"><h3><?php echo ' Bem Vindo, ' . $_SESSION["user"] . '!' ; ?></h3></label>

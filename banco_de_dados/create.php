@@ -42,12 +42,13 @@ if( isset($_POST["title"])) {
     
 
     $acesso = mysqli_query($conecta, $sql);   //concetando com o db
-    //$informacao = mysqli_fetch_assoc($acesso); //transformando tudo em um array / $informacao = agora tem autonomia sobre o banco de dados 
+    $assoc = mysqli_fetch_assoc($acesso);   //transformando tudo em um array / $assoc = agora tem autonomia sobre o banco de dados 
     //$acesso =  mysqli_fetch_assoc($tasks);
     if(!$acesso) {
         die("Tarefa não adicionada!");
     } else {
         //$mensagem = "Sua tarefa foi adicionada com sucesso!";
+        //$_SESSION["user"] = $assoc["name"]; 
         header("location:../minhatarefa1.php");
     }
 }   

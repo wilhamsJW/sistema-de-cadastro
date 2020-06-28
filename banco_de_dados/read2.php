@@ -24,7 +24,7 @@
          //header("location: ../login2.php");   
     } else {
         //Rotina de saudação foi iniciada aqui pq a var $informacao tem todo o acesso ao banco de dados
-        $_SESSION["user"] = $informacao["name"]; 
+         $_SESSION["user"] = $informacao["name"]; 
          header("location: minhatarefa1.php");   
     }
 
