@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Jun-2020 às 01:56
+-- Tempo de geração: 29-Jun-2020 às 01:36
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.6
 
@@ -28,8 +28,8 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `clientes` (
-  `nome` varchar(50) NOT NULL,
-  `email` varchar(40) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
   `senha` varchar(20) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -38,18 +38,12 @@ CREATE TABLE `clientes` (
 -- Extraindo dados da tabela `clientes`
 --
 
-INSERT INTO `clientes` (`nome`, `email`, `senha`, `id`) VALUES
+INSERT INTO `clientes` (`name`, `email`, `senha`, `id`) VALUES
 ('Wilhams', 'wilhams.dev@gmail.com', 'www', 1),
-('MC2', 'MC2@MC2', 'mc2', 2),
-('Wilhams', 'Wilhamsmeira@gmail.com', 'qq', 3),
-('ronaldo', 'rodrigo@ppp', 'ee', 5),
-('ronaldo', 'rrrr@errrr', 're', 6),
-('andré', 'andr@andr', '123', 7),
-('andré', 'andr@andro', 'uu', 9),
-('jose', 'jose@jose', 'as', 11),
-('maria', 'maria@maria', 'as', 12),
-('bernadete', 'bernadete@bernadete', 'as', 14),
-('', '', '', 15);
+('yadson', 'yadson@mc2', 'mc2', 2),
+('MC2', 'mc2@mc2', 'mc2', 4),
+('suanny meira', 'suanny@meira', 'su', 5),
+('', '', '', 6);
 
 -- --------------------------------------------------------
 
@@ -59,9 +53,9 @@ INSERT INTO `clientes` (`nome`, `email`, `senha`, `id`) VALUES
 
 CREATE TABLE `tasks` (
   `title` varchar(50) DEFAULT NULL,
-  `start_date` varchar(8) DEFAULT NULL,
-  `last_date` varchar(8) DEFAULT NULL,
-  `description` varchar(200) DEFAULT NULL,
+  `date_incio` varchar(8) DEFAULT NULL,
+  `date_end` varchar(8) DEFAULT NULL,
+  `descri` varchar(200) DEFAULT NULL,
   `stats` varchar(10) DEFAULT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -70,11 +64,8 @@ CREATE TABLE `tasks` (
 -- Extraindo dados da tabela `tasks`
 --
 
-INSERT INTO `tasks` (`title`, `start_date`, `last_date`, `description`, `stats`, `id`) VALUES
-('Hello MC2', NULL, NULL, NULL, NULL, 1),
-('Hello MC2', NULL, NULL, NULL, NULL, 2),
-('Hello MC2', NULL, NULL, NULL, NULL, 3),
-('Hello MC2', '2222-02-', ' 2222-02', 'A MC2 Performance oferece consultoria empresarial, com foco em alavancar negócios e resultados, através de Modelagem e Automação de Processos de Negócio, Governança Corporativa e de TI, Diagnóstico de', ' ', 4);
+INSERT INTO `tasks` (`title`, `date_incio`, `date_end`, `descri`, `stats`, `id`) VALUES
+('xxxxxxxxxxxxxx', '', '', '', 'Edite seu ', 44);
 
 --
 -- Índices para tabelas despejadas
@@ -101,13 +92,13 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT de tabela `clientes`
 --
 ALTER TABLE `clientes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
