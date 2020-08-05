@@ -1,0 +1,45 @@
+#formu {
+   text-align: center;
+   padding: 40px;
+   background-color:#23104c;
+   /*background-color: #5d2bca;*/
+   border-radius: 10px;
+}
+
+#font{
+    font-weight: bold;
+    color: white;
+}
+
+#font2{
+    font-weight: bold;
+    color:yellow;
+    margin-top: 90px;
+}
+
+#B{
+    background: url(../img/logo2.jpg) no-repeat;
+    background-size:cover;
+    background-color: #8d68df;
+}
+
+#bo{
+    background-color: #5d2bca;
+}
+
+#button{
+    background-color: #6639d0;
+    font-weight: bold;
+}
+
+.menu{
+    background-color: #23104c;
+}
+
+#nav1{
+    color: white;
+}
+
+#nav2{
+    color: white;
+}

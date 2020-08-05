@@ -1,0 +1,1709 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Tempo de geração: 29-Jul-2020 às 09:47
+-- Versão do servidor: 10.4.11-MariaDB
+-- versão do PHP: 7.4.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Banco de dados: `agenda`
+--
+CREATE DATABASE IF NOT EXISTS `agenda` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `agenda`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `contatos`
+--
+
+CREATE TABLE `contatos` (
+  `contatoID` int(12) NOT NULL,
+  `nome` varchar(40) NOT NULL,
+  `telefone` varchar(25) NOT NULL,
+  `ddd` varchar(3) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `foto` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `contatos`
+--
+
+INSERT INTO `contatos` (`contatoID`, `nome`, `telefone`, `ddd`, `email`, `foto`) VALUES
+(1, '', '', '', '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produtos2`
+--
+
+CREATE TABLE `produtos2` (
+  `produto` int(11) NOT NULL,
+  `nomeproduto` varchar(255) NOT NULL,
+  `preco_unitario` decimal(12,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `contatos`
+--
+ALTER TABLE `contatos`
+  ADD PRIMARY KEY (`contatoID`);
+
+--
+-- Índices para tabela `produtos2`
+--
+ALTER TABLE `produtos2`
+  ADD PRIMARY KEY (`produto`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `contatos`
+--
+ALTER TABLE `contatos`
+  MODIFY `contatoID` int(12) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- Banco de dados: `andes`
+--
+CREATE DATABASE IF NOT EXISTS `andes` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `andes`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `categoriaID` int(3) NOT NULL,
+  `nomecategoria` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `categorias`
+--
+
+INSERT INTO `categorias` (`categoriaID`, `nomecategoria`) VALUES
+(1, 'Coffee'),
+(2, 'Food'),
+(3, 'Merchandise'),
+(4, 'Clothing');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `clienteID` int(8) NOT NULL,
+  `nomecompleto` varchar(50) DEFAULT NULL,
+  `endereco` varchar(50) DEFAULT NULL,
+  `complemento` varchar(30) DEFAULT NULL,
+  `numero` varchar(15) DEFAULT NULL,
+  `cidade` varchar(50) DEFAULT NULL,
+  `estadoID` tinyint(3) DEFAULT NULL,
+  `cep` varchar(10) DEFAULT NULL,
+  `ddd` varchar(3) DEFAULT NULL,
+  `telefone` varchar(10) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL,
+  `usuario` varchar(10) DEFAULT NULL,
+  `senha` varchar(10) DEFAULT NULL,
+  `nivel` varchar(10) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`clienteID`, `nomecompleto`, `endereco`, `complemento`, `numero`, `cidade`, `estadoID`, `cep`, `ddd`, `telefone`, `email`, `usuario`, `senha`, `nivel`) VALUES
+(7, 'Bob', 'Kobe Dr', 'Suite 31', '2929 ', 'São Paulo', 27, '92123', '11', '99999-0001', 'bobrob@dru', 'bobrob', 'cheese', 'admin'),
+(8, 'Lee', 'Priestly Dr', 'Suite 30', '5927 ', 'Rio de Janeiro', 22, '92008', '21', '9999-0101', 'ldkim@drum', 'ldkim', 'drums', 'admin'),
+(9, 'Jane', 'Priestly Dr', 'Suite 01', '5924 ', 'Recife', 17, '92008', '81', '9999-0202', 'jstev@fili', 'zac', 'zac', 'admin'),
+(33, 'Mary', 'Mill Lane', 'House', '22', 'Rio de Janeiro', 22, 'P0987GH', '21', '9999-0303', 'mary@sheep.com', 'mary', 'baa', 'user'),
+(34, 'Adriaan', 'Main St.', 'House', '31', 'Porto Alegre', 21, '90876', '51', '9999-0001', 'joe@blow.net', 'joe', 'blow', 'user'),
+(35, 'Yeshe', 'Place des Vosges', 'House', '26 ', 'Recife', 17, '75003', '81', '9999-0404', 'kako@alibert.org', 'kako', 'crow', 'user'),
+(36, 'Jean-Claude', 'Rue des Archives', 'Suite 31', '26 ', 'Salvador', 5, '75003', '71', '9999-0500', 'bouquet@paris.com', 'bouquet', 'archives', 'foreign'),
+(37, 'Charmian', 'Biscane Boulevard', 'Suite 55', '21', 'Fortaleza', 6, '87543', '85', '9999-0001', 'thepet@cows.com', 'petty', 'officer', 'admin'),
+(38, 'Tex', 'Ocean Dr', 'Suite 11', '32', 'Fortaleza', 6, '92107', '85', '9999-0002', 'minou@sefton.com', 'minou', 'lechat', 'user'),
+(39, 'James', 'Lotus St', 'Suite 533', '33', 'Belo Horizonte', 13, '92107', '31', '9999-0001', 'jjones@thing.com', 'jj', 'magenta', 'user'),
+(40, 'Scott', 'Harley St.', 'Suite 31', '1312 ', 'Curitiba', 16, '41414', '41', '9999-4001', 'scottie@theworks.camvria.com', 'scooby', 'doo', 'user'),
+(41, 'Mavis', 'The Lane', 'Suite 01', '774', 'Florianopolis', 28, '99999', '48', '9999-0001', 'mave@formerly.sisters.org', 'mkirk', 'jesus', 'user'),
+(42, 'Morton', 'Kwai', 'Suite 02', '101', 'João Pessoa', 15, '71717', '83', '9999-0001', 'mgold@brockyard.herrr.org', 'gold', 'rng665', 'user'),
+(43, 'Monica', 'Arbor Drive', 'Suite 01', '21 ', 'Belém', 14, '91111', '91', '9999-0001', 'birch@nobodys.fool.com', 'birch', 'bsgr%', 'admin'),
+(44, 'Amos', 'Framingham Ave', 'Suite 10', '4545 ', 'Manaus', 4, '31311', '92', '9999-0001', 'add@barnham.peoples.com', 'adur', 'adur', 'user'),
+(45, 'Pietro', 'Vagam', 'Suite 01', '4010', 'Goiania', 9, 'dfsf', '63', '9999-0001', 'pcard@utica.gegli.it', 'cardinal', 'oojj&t', 'foreign'),
+(46, 'Amosa', 'Conselheiro Av', 'Suite 15', '187', 'Brasília', 7, 'gfg', '61', '9999-9991', 'bosun@navarro.edu', 'partner', 'fairies', 'user'),
+(47, 'Marvin', 'Domingos Dr', 'House', '2400', 'São Luis', 10, '30303', '98', '9999-0001', 'mdekal@megaprod.com', 'mdekal', 'uu6654', 'user'),
+(48, 'Duncan', 'Aguamenon Av', 'Suite 21', '3010', 'Vitória', 8, '221', '27', '9999-0001', 'biggie@brabazon.co.il', 'brab', 'plane', 'foreign'),
+(49, 'Brandon', 'Penny Lane', 'Suite 22', '1212 ', 'Macapá', 3, '21177', '96', '9999-0001', 'bshaft@thegroup.net', 'shaft', '3344510', 'user'),
+(50, 'Raul', 'Farley Ave', 'Suite 10', '444 ', 'Maceió', 2, '92117', '82', '9999-0001', 'rost@aero.mx.com', 'pilot', 'brebby', 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `departamentos`
+--
+
+CREATE TABLE `departamentos` (
+  `departamentoID` int(11) NOT NULL,
+  `nomedepartamento` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `departamentos`
+--
+
+INSERT INTO `departamentos` (`departamentoID`, `nomedepartamento`) VALUES
+(1, 'financeiro'),
+(2, 'comercial'),
+(3, 'atendimento'),
+(4, 'direção'),
+(6, 'gerência financeira'),
+(7, 'presidencia'),
+(8, 'CPD');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estados`
+--
+
+CREATE TABLE `estados` (
+  `estadoID` tinyint(3) UNSIGNED NOT NULL,
+  `nome` char(20) DEFAULT '0',
+  `sigla` char(2) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `estados`
+--
+
+INSERT INTO `estados` (`estadoID`, `nome`, `sigla`) VALUES
+(1, 'Acre', 'AC'),
+(2, 'Alagoas', 'AL'),
+(3, 'Amapá', 'AP'),
+(4, 'Amazonas', 'AM'),
+(5, 'Bahia', 'BA'),
+(6, 'Ceará', 'CE'),
+(7, 'Distrito Federal', 'DF'),
+(8, 'Espírito Santo', 'ES'),
+(9, 'Goiás', 'GO'),
+(10, 'Maranhão', 'MA'),
+(11, 'Mato Grosso', 'MT'),
+(12, 'Mato Grosso do Sul', 'MS'),
+(13, 'Minas Gerais', 'MG'),
+(14, 'Pará', 'PA'),
+(15, 'Paraíba', 'PB'),
+(16, 'Paraná', 'PR'),
+(17, 'Pernambuco', 'PE'),
+(19, 'Piauí', 'PI'),
+(20, 'RG do Norte', 'RN'),
+(21, 'RG do Sul', 'RS'),
+(22, 'Rio de Janeiro', 'RJ'),
+(24, 'Rondônia', 'RO'),
+(25, 'Roraima', 'RA'),
+(27, 'São Paulo', 'SP'),
+(29, 'Sergipe', 'SE'),
+(30, 'Tocantins', 'TO');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `fornecedores`
+--
+
+CREATE TABLE `fornecedores` (
+  `fornecedorID` int(8) NOT NULL,
+  `nomefornecedor` varchar(50) DEFAULT NULL,
+  `endereco` varchar(50) DEFAULT NULL,
+  `cidade` varchar(50) DEFAULT NULL,
+  `estadoID` tinyint(3) DEFAULT NULL,
+  `telefone` varchar(14) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `fornecedores`
+--
+
+INSERT INTO `fornecedores` (`fornecedorID`, `nomefornecedor`, `endereco`, `cidade`, `estadoID`, `telefone`) VALUES
+(1, 'Joe Mugger', 'Rua Ernesto de Paula Santos, 187', 'Recife', 17, '949 568 7852'),
+(2, 'Dining Suppliers', '5 Hometown Dr.', 'São Paulo', 27, '565 123 1223'),
+(3, 'Pacific Merchandise', '56 Parkway Plaza', 'Rio de Janeiro', 22, '310 345 4565'),
+(4, 'Quick Clothing', '4598 Main St', 'Porto Alegre', 21, '858 555 1654');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `fornecedores_contatos`
+--
+
+CREATE TABLE `fornecedores_contatos` (
+  `contatoID` int(11) NOT NULL,
+  `fornecedorID` int(11) DEFAULT NULL,
+  `departamentoID` int(11) DEFAULT NULL,
+  `nome` varchar(50) DEFAULT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
+  `email` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `fornecedores_contatos`
+--
+
+INSERT INTO `fornecedores_contatos` (`contatoID`, `fornecedorID`, `departamentoID`, `nome`, `telefone`, `email`) VALUES
+(1, 1, 1, 'Joana Piauí', '33262836', 'joana@joemugger.com'),
+(2, 1, 2, 'Ricardo Prata', '33262836', 'ricardo@joemugger.com'),
+(3, 2, 3, 'Gustavo Bege', '33262836', 'gustavo@dining.com'),
+(4, 2, 2, 'Marta Borges', '33262836', 'marta@dining.com'),
+(5, 3, 4, 'Fernando Maranhão', '33262836', 'fernando@pacific.com'),
+(6, 3, 1, 'Ronaldo Catarinense', '33262836', 'ronaldo@pacific.com'),
+(7, 4, 2, 'Alexandre Cisne', '33262836', 'alexandre@quickclothing.com'),
+(8, 4, 1, 'Paulo José', '33262836', 'paulo@quickclothing.com'),
+(9, 4, 4, 'Victor Nazário', '33262836', 'victor@quickclothing.com'),
+(10, 4, 4, 'evellyn sales', '3326.2836', 'aneevellyn@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `franquias`
+--
+
+CREATE TABLE `franquias` (
+  `franquiaID` int(11) NOT NULL,
+  `nomegerente` varchar(50) NOT NULL,
+  `endereco` varchar(50) NOT NULL,
+  `cidade` varchar(50) NOT NULL,
+  `estadoID` tinyint(1) NOT NULL,
+  `telefone` varchar(15) DEFAULT NULL,
+  `dataabertura` date NOT NULL,
+  `faturamento` decimal(10,2) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `franquias`
+--
+
+INSERT INTO `franquias` (`franquiaID`, `nomegerente`, `endereco`, `cidade`, `estadoID`, `telefone`, `dataabertura`, `faturamento`) VALUES
+(1, 'Fabiana Albuquerque', 'Rua Jose Lourenço, 870 Sala 210', 'Fortaleza', 6, '085-2615554', '2006-05-18', '200000.00'),
+(2, 'Neto Leal', 'Rua Ernesto de Paula Santos, 187 Sala 505', 'Recife', 17, '081.3326.2836', '2006-11-01', '300000.00'),
+(3, 'Roberto Rabelo', 'Av. Antonio Carlos Magalhaes, 188', 'Salvador', 5, '071.3580705', '2006-12-16', '450000.00'),
+(4, 'Victor Alves', 'Av. Barão de Studart, 101', 'Fortaleza', 6, '085.2480500', '2007-01-02', '150000.00'),
+(5, 'Anne Sampaio', 'Av. Senhor do Bonfim', 'Salvador', 5, '417 625 6005', '2007-03-08', '280000.00'),
+(6, 'Vinicius Samico', 'Av. Agamenon Magalhaes', 'Recife', 17, '081.33222233', '2007-05-01', '120000.00'),
+(7, 'Paula Sanguinetti', 'Av. Presidente Prudente', 'Recife', 1, '081.3326.2938', '2007-10-11', '150000.00'),
+(8, 'Michelle Alves', 'Av. Getúlio Vargas', 'Porto Alegre', 21, '051.3030302', '2007-11-20', '320000.00'),
+(9, 'Saulo Brito', 'Av. São João, 10', 'São Paulo', 27, '011.3223-2232', '2008-04-02', '323221.00'),
+(10, 'Davi Sampaio', 'Av. Copacabana, 101', 'Rio de Janeiro', 22, '021.3223-1010', '2008-05-01', '223421.00');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pedidos`
+--
+
+CREATE TABLE `pedidos` (
+  `pedidoID` int(11) NOT NULL,
+  `clienteID` int(11) NOT NULL,
+  `transportadoraID` int(11) DEFAULT NULL,
+  `data_pedido` date NOT NULL,
+  `data_saida` date DEFAULT NULL,
+  `data_entrega` date DEFAULT NULL,
+  `status_pedido` tinyint(3) NOT NULL,
+  `valor_pedido` decimal(10,2) NOT NULL,
+  `conhecimento` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `pedidos`
+--
+
+INSERT INTO `pedidos` (`pedidoID`, `clienteID`, `transportadoraID`, `data_pedido`, `data_saida`, `data_entrega`, `status_pedido`, `valor_pedido`, `conhecimento`) VALUES
+(1, 7, 2, '2006-11-19', '2006-11-19', '2006-11-24', 1, '480.00', '2324324'),
+(2, 8, 2, '2006-11-19', '2006-11-24', '2006-11-29', 1, '295.00', '2342342'),
+(3, 8, 3, '2006-12-20', '2006-12-20', '2006-12-25', 2, '650.00', '2342341'),
+(4, 22, 1, '2007-12-22', '2007-12-23', '2007-12-29', 1, '240.00', '2323424'),
+(5, 33, 1, '2007-01-21', '2007-01-22', '2007-01-28', 1, '600.00', '4634633'),
+(6, 33, 2, '2007-01-21', '2007-01-22', '2007-01-27', 1, '2720.00', '5453343'),
+(7, 35, 1, '2007-01-24', '2007-01-25', '2007-01-28', 3, '260.00', '5646442'),
+(8, 40, 3, '2007-01-27', '2007-01-29', '2007-01-31', 4, '1840.00', '4657574'),
+(9, 43, 1, '2007-02-01', '2007-02-01', '2007-02-01', 1, '780.00', '9837958'),
+(10, 48, 2, '2007-02-01', '2007-02-01', '2007-02-01', 2, '2240.00', '4345646'),
+(11, 48, 3, '2007-02-03', '2007-02-03', '2007-02-08', 2, '1500.00', '7628364'),
+(12, 22, 2, '2007-02-03', '2007-02-03', '2007-02-09', 1, '450.00', '6284882'),
+(13, 35, 3, '2007-03-18', '2007-03-26', '2007-03-30', 1, '800.00', '7687688'),
+(14, 40, 2, '2007-03-25', '2007-03-25', '2007-03-26', 2, '380.00', '8787999'),
+(15, 7, 1, '2007-04-02', '2007-04-05', '2007-04-09', 2, '475.00', '2348729'),
+(16, 22, 3, '2007-04-05', '2007-04-05', '2007-04-11', 1, '290.00', '3253221'),
+(17, 50, 2, '2007-04-19', '2007-04-19', '2007-04-19', 2, '810.00', '3234221'),
+(18, 8, 1, '2007-05-01', '2007-02-12', '2007-02-17', 2, '445.00', '2352329'),
+(19, 7, 3, '2007-05-04', '2007-05-05', '2007-05-07', 1, '295.00', '7638888'),
+(20, 50, 1, '2007-06-10', '2007-06-10', '2007-06-11', 2, '475.00', '7987989');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pedidos_item`
+--
+
+CREATE TABLE `pedidos_item` (
+  `pedidoID` int(11) DEFAULT NULL,
+  `produtoID` int(11) DEFAULT NULL,
+  `precounitario` decimal(10,2) DEFAULT NULL,
+  `quantidade` smallint(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `pedidos_item`
+--
+
+INSERT INTO `pedidos_item` (`pedidoID`, `produtoID`, `precounitario`, `quantidade`) VALUES
+(1, 1, '20.00', 10),
+(1, 2, '9.00', 20),
+(1, 5, '20.00', 5),
+(2, 10, '5.00', 50),
+(2, 11, '9.00', 5),
+(3, 13, '14.00', 20),
+(3, 15, '14.00', 10),
+(3, 20, '12.00', 5),
+(3, 19, '12.00', 10),
+(3, 21, '5.00', 10),
+(4, 20, '12.00', 20),
+(5, 18, '12.00', 20),
+(5, 19, '12.00', 10),
+(5, 20, '12.00', 15),
+(5, 17, '12.00', 5),
+(6, 1, '20.00', 5),
+(6, 2, '9.00', 100),
+(6, 3, '3.00', 20),
+(6, 4, '3.00', 200),
+(6, 7, '14.00', 70),
+(6, 19, '12.00', 10),
+(7, 13, '14.00', 10),
+(7, 14, '9.00', 5),
+(7, 21, '5.00', 15),
+(8, 16, '12.00', 5),
+(8, 17, '12.00', 5),
+(8, 10, '12.00', 60),
+(8, 1, '20.00', 50),
+(9, 11, '12.00', 30),
+(9, 12, '21.00', 20),
+(10, 18, '12.00', 35),
+(10, 9, '5.00', 100),
+(10, 7, '7.00', 90),
+(10, 14, '9.00', 50),
+(10, 6, '14.00', 10),
+(10, 22, '2.00', 50),
+(11, 21, '5.00', 300),
+(12, 11, '12.00', 10),
+(12, 5, '21.00', 15),
+(12, 3, '3.00', 5),
+(13, 2, '14.00', 20),
+(13, 19, '12.00', 10),
+(13, 22, '2.00', 50),
+(13, 3, '3.00', 100),
+(14, 7, '7.00', 50),
+(14, 8, '3.00', 10),
+(15, 1, '20.00', 8),
+(15, 2, '9.00', 15),
+(15, 17, '12.00', 15),
+(16, 18, '12.00', 10),
+(16, 19, '12.00', 5),
+(16, 21, '5.00', 10),
+(16, 10, '12.00', 5),
+(17, 6, '14.00', 5),
+(17, 8, '3.00', 100),
+(17, 2, '9.00', 15),
+(17, 12, '21.00', 5),
+(17, 13, '14.00', 5),
+(17, 15, '14.00', 5),
+(17, 17, '12.00', 5),
+(18, 1, '20.00', 20),
+(18, 3, '3.00', 15),
+(19, 21, '5.00', 20),
+(19, 7, '7.00', 15),
+(19, 14, '9.00', 10),
+(20, 18, '12.00', 20),
+(20, 19, '12.00', 10),
+(20, 22, '2.00', 15),
+(20, 8, '3.00', 5),
+(20, 15, '14.00', 5);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pedidos_status`
+--
+
+CREATE TABLE `pedidos_status` (
+  `statusID` int(11) NOT NULL,
+  `nomestatus` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `pedidos_status`
+--
+
+INSERT INTO `pedidos_status` (`statusID`, `nomestatus`) VALUES
+(1, 'Pagamento Confirmado'),
+(2, 'Pagamento Pendente'),
+(3, 'Cancelado pelo cliente'),
+(4, 'Cancelado pela empresa');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `produtos`
+--
+
+CREATE TABLE `produtos` (
+  `produtoID` int(11) NOT NULL,
+  `nomeproduto` varchar(50) DEFAULT NULL,
+  `descricao` longtext DEFAULT NULL,
+  `codigobarra` varchar(15) DEFAULT NULL,
+  `tempoentrega` tinyint(3) DEFAULT NULL,
+  `precorevenda` decimal(10,2) DEFAULT NULL,
+  `precounitario` decimal(10,2) DEFAULT NULL,
+  `estoque` mediumint(4) DEFAULT NULL,
+  `imagemgrande` varchar(100) DEFAULT NULL,
+  `imagempequena` varchar(100) DEFAULT NULL,
+  `descontinuado` tinyint(1) DEFAULT 0,
+  `fornecedorID` tinyint(3) DEFAULT NULL,
+  `categoriaID` tinyint(3) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `produtos`
+--
+
+INSERT INTO `produtos` (`produtoID`, `nomeproduto`, `descricao`, `codigobarra`, `tempoentrega`, `precorevenda`, `precounitario`, `estoque`, `imagemgrande`, `imagempequena`, `descontinuado`, `fornecedorID`, `categoriaID`) VALUES
+(1, 'Biscottis', 'All-natural bite-sized biscuits.', '789151 823800', 15, '10.00', '20.00', 100, 'images/product_images/HoneyBiscotti_Big.jpg', 'images/product_images/HoneyBiscotti_Smallb.jpg', 0, 2, 2),
+(2, 'Organic Earl Grey', 'Because once in a blue moon you might want something besides coffee. This blend of black and green teas is highly aromatic, rich and flavorful with a hint of light citrus.', '789151 823798', 8, '6.00', '9.00', 1000, 'images/product_images/EarlGreyTea_Big.jpg', 'images/product_images/EarlGreyTea_Smallb.jpg', 0, 1, 2),
+(3, 'Sugar', 'How many spoonfuls do you need? Crystallized from 100% organic sugar cane, and milled within 24 hours of harvest to ensure it\'s as fresh as our coffee beans.', '789151 823797', 8, '1.00', '3.00', 500, 'images/product_images/Sugar_Big.jpg', 'images/product_images/Sugar_Smallb.jpg', 0, 2, 2),
+(4, 'Non-Diary Creamer', 'If running out of milk or cream for your coffee is tantamount to a state of emergency, we suggest you stock up on these delicious non-dairy creamers just in case.', '789151 823796', 5, '2.00', '3.00', 500, 'images/product_images/NonDairyCreamer_Big.jpg', 'images/product_images/NonDairyCreamer_Smallb.jpg', 0, 2, 2),
+(5, 'Steel Mug', 'Here\'s one way to make sure your coffee stays warm during a long commute. Made of lightweight metal alloy.', '789151 823795', 15, '15.00', '21.00', 300, 'images/product_images/SteelMug_Big.jpg', 'images/product_images/SteelMug_Smallb.jpg', 0, 3, 3),
+(6, 'Ceramic Mug', 'Handcrafted by Colorado artisans. These generous mugs feature an opaque green satin glaze over classic stoneware.', '789151 823799', 15, '10.00', '14.00', 80, 'images/product_images/CeramicMug_Big.jpg', 'images/product_images/CeramicMug_Smallb.jpg', 0, 3, 3),
+(7, 'Plastic Mug', 'If you\'re a little klutzy in the morning, we recommend this shatter-proof, durable plastic commuter mug.', '789151 823795', 8, '5.00', '7.00', 750, 'images/product_images/PlasticMug_Big.jpg', 'images/product_images/PlasticMug_Smallb.jpg', 0, 3, 3),
+(8, 'Thermometer', 'Ideal for microwaving your coffee. With a stainless steel stem, large, easy-to-read digital display and case.', '789151 823654', 30, '1.50', '3.00', 45, 'images/product_images/Thermometer_Big.jpg', 'images/product_images/Thermometer_Smallb.jpg', 0, 3, 3),
+(9, 'Hype Filters', 'Never resort to using papers towels when you\'re out of paper filters. This Gold-Tone filter is always ready.', '789151 823655', 5, '2.80', '5.00', 50, 'images/product_images/HypeFilters_Big.jpg', 'images/product_images/HypeFilters_Smallb.jpg', 0, 3, 3),
+(10, 'Brave New World T-Shirt', '100% cotton. Available in black, mocha or white.', '789151 823765', 5, '8.00', '12.00', 60, 'images/product_images/TShirt_Big.jpg', 'images/product_images/TShirt_Smallb.jpg', 0, 4, 4),
+(11, 'Brave Blend', 'Grown on some of the highest peaks in Brazil, India, Kenya and Puerto Rico, this blend represents the best arabica beans the world has to offer.', '789151 823765', 15, '8.00', '12.00', 100, 'images/product_images/BraveBlend_Group_Big.jpg', 'images/product_images/BraveBlend_Group_Smallb.jpg', 0, 1, 1),
+(12, 'Brave New World Sweatshirt', '- Perfect for lazing around on a Sunday morning with the paper and a cup of your favorite blend. Pigment-dyed for lasting color. Ribbed cuff and bottom.', '789151 823658', 15, '8.00', '21.00', 250, 'images/product_images/Sweatshirt_Big.jpg', 'images/product_images/Sweatshirt_Smallb.jpg', 0, 4, 4),
+(13, 'Andes Baseball Cap', 'You\'re groggy and need coffee right away. This is no time to worry about your hair. Throw on this cap and head to the nearest ANDES. Cotton, adjustable, available in two colors.', '789151 823659', 5, '11.00', '14.00', 40, 'images/product_images/Baseballcap_Big.jpg', 'images/product_images/Baseballcap_Smallb.jpg', 0, 4, 4),
+(14, 'Andes Toque', 'Style comes with a layer of Comfort Max lycra stretch material on the inside and a tasty ANDES logo on the outside.', '789151 823564', 5, '5.00', '9.00', 80, 'images/product_images/Toke_Big.jpg', 'images/product_images/Toke_Smallb.jpg', 0, 4, 4),
+(15, 'Audio CD', 'Our very own coffee house collection, featuring poetry slams, soulful vocals and a generous helping of the blues.', '789151 823732', 5, '11.00', '14.00', 10, 'images/product_images/MusicCD_Big.jpg', 'images/product_images/MusicCD_Smallb.jpg', 0, 3, 3),
+(16, 'Year 1999 Blend', 'Java, Mysore and Sumatra beans offer a mellow flavor to make all the Year 2000 hype more palatable.', '789151 823455', 5, '9.00', '12.00', 45, 'images/product_images/Year1999Blend_Group_Big.jpg', 'images/product_images/Year1999Blend_Group_Smallb.jpg', 0, 1, 1),
+(17, 'Border Blend', 'Columbia, Costa Rica and Estate Java beans offer a mellow flavor to make all the Year 2000 hype more palatable.', '782341 823795', 5, '6.00', '12.00', 30, 'images/product_images/BorderBlend_Group_Big.jpg', 'images/product_images/BorderBlend_Group_Smallb.jpg', 0, 1, 1),
+(18, 'Blond Blend', 'Processed for lower levels of caffeine without reducing the integrity of this rich Costa Rica bean.', '734561 823795', 5, '7.50', '12.00', 10, 'images/product_images/BlondBlend_Group_Big.jpg', 'images/product_images/BlondBlend_Group_Smallb.jpg', 0, 1, 1),
+(19, 'Winter Blend', '- Columbia and Jamaica beans create a full-bodied, mellow, slightly nutty flavor.', '798751 823795', 8, '7.50', '12.00', 5, 'images/product_images/WinterBlend_Group_Big.jpg', 'images/product_images/WinterBlend_Group_Smallb.jpg', 0, 1, 1),
+(20, 'Chocolate Mocha Bars', 'Very European and very decadent. Drop these milk chocolates into your coffee to release a rich mocha aroma and pool of hot chocolate.', '123151 823795', 15, '9.00', '12.00', 25, 'images/product_images/ChocolateMochaBars_Big.jpg', 'images/product_images/ChocolateMochaBars_Smallb.jpg', 0, 2, 2),
+(21, 'Chocolate Covered Coffee Beans', 'Made for all-nighters, afternoon lulls, and long drives. These are the times when you need a sweet jolt.', '784561 823795', 30, '3.00', '5.00', 30, 'images/product_images/ChocolateCoffeBeans_Big.jpg', 'images/product_images/ChocolateCoffeBeans_Smallb.jpg', 0, 2, 2),
+(22, 'Breath Mints', 'No one need know how many cups of coffee you consume in a day. Hide it well with these powerfully refreshing mints.', '789151 823980', 30, '1.00', '2.00', 60, 'images/product_images/BreathMints_Big.jpg', 'images/product_images/BreathMints_Smallb.jpg', 0, 2, 2),
+(23, NULL, NULL, NULL, 0, '23.00', '48.00', NULL, NULL, NULL, 0, NULL, NULL),
+(24, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL),
+(25, 'frigideira', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `transportadoras`
+--
+
+CREATE TABLE `transportadoras` (
+  `transportadoraID` int(11) NOT NULL,
+  `nometransportadora` varchar(50) DEFAULT NULL,
+  `endereco` varchar(50) DEFAULT NULL,
+  `telefone` varchar(50) DEFAULT NULL,
+  `cidade` varchar(50) DEFAULT NULL,
+  `estadoID` tinyint(3) DEFAULT NULL,
+  `cep` varchar(10) DEFAULT NULL,
+  `cnpj` varchar(19) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Extraindo dados da tabela `transportadoras`
+--
+
+INSERT INTO `transportadoras` (`transportadoraID`, `nometransportadora`, `endereco`, `telefone`, `cidade`, `estadoID`, `cep`, `cnpj`) VALUES
+(1, 'Rapidão Estrela', 'Rua Ernesto de Paula Santos, 187', '33262836', 'Recife', 17, '51.021-330', '2234234234'),
+(2, 'Itapemirão', 'Rua Visconde de Sabugosa, 11', '33262836', 'São Paulo', 27, '01.323.123', '2424243221'),
+(3, 'SEDEX', 'Av Ipanema, 22123', '33262836', 'Rio de Janeiro', 21, '02.320.121', '2342424324');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`categoriaID`);
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`clienteID`);
+
+--
+-- Índices para tabela `departamentos`
+--
+ALTER TABLE `departamentos`
+  ADD PRIMARY KEY (`departamentoID`);
+
+--
+-- Índices para tabela `estados`
+--
+ALTER TABLE `estados`
+  ADD PRIMARY KEY (`estadoID`);
+
+--
+-- Índices para tabela `fornecedores`
+--
+ALTER TABLE `fornecedores`
+  ADD PRIMARY KEY (`fornecedorID`);
+
+--
+-- Índices para tabela `fornecedores_contatos`
+--
+ALTER TABLE `fornecedores_contatos`
+  ADD PRIMARY KEY (`contatoID`);
+
+--
+-- Índices para tabela `franquias`
+--
+ALTER TABLE `franquias`
+  ADD PRIMARY KEY (`franquiaID`);
+
+--
+-- Índices para tabela `pedidos`
+--
+ALTER TABLE `pedidos`
+  ADD PRIMARY KEY (`pedidoID`);
+
+--
+-- Índices para tabela `pedidos_status`
+--
+ALTER TABLE `pedidos_status`
+  ADD PRIMARY KEY (`statusID`);
+
+--
+-- Índices para tabela `produtos`
+--
+ALTER TABLE `produtos`
+  ADD PRIMARY KEY (`produtoID`);
+
+--
+-- Índices para tabela `transportadoras`
+--
+ALTER TABLE `transportadoras`
+  ADD PRIMARY KEY (`transportadoraID`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `categoriaID` int(3) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `clienteID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
+
+--
+-- AUTO_INCREMENT de tabela `departamentos`
+--
+ALTER TABLE `departamentos`
+  MODIFY `departamentoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
+-- AUTO_INCREMENT de tabela `estados`
+--
+ALTER TABLE `estados`
+  MODIFY `estadoID` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+
+--
+-- AUTO_INCREMENT de tabela `fornecedores`
+--
+ALTER TABLE `fornecedores`
+  MODIFY `fornecedorID` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `fornecedores_contatos`
+--
+ALTER TABLE `fornecedores_contatos`
+  MODIFY `contatoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `franquias`
+--
+ALTER TABLE `franquias`
+  MODIFY `franquiaID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT de tabela `pedidos`
+--
+ALTER TABLE `pedidos`
+  MODIFY `pedidoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT de tabela `pedidos_status`
+--
+ALTER TABLE `pedidos_status`
+  MODIFY `statusID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT de tabela `produtos`
+--
+ALTER TABLE `produtos`
+  MODIFY `produtoID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+
+--
+-- AUTO_INCREMENT de tabela `transportadoras`
+--
+ALTER TABLE `transportadoras`
+  MODIFY `transportadoraID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- Banco de dados: `db_cadastro`
+--
+CREATE DATABASE IF NOT EXISTS `db_cadastro` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `db_cadastro`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_clientes`
+--
+
+CREATE TABLE `tb_clientes` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(40) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `telefone` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Extraindo dados da tabela `tb_clientes`
+--
+
+INSERT INTO `tb_clientes` (`id`, `nome`, `email`, `telefone`) VALUES
+(40, 'eeeeeeeeeee', 'eeeeeeeeee@e', '1111111111'),
+(42, 'qqqqqqqqqq', 'qqqqq@qqqqqq', '4444'),
+(43, 'xxxxxx', 'xxx@xxx', '222222'),
+(44, 'wil', 'wilhams.dev@gmail.com', '3333');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `tb_clientes`
+--
+ALTER TABLE `tb_clientes`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `tb_clientes`
+--
+ALTER TABLE `tb_clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+--
+-- Banco de dados: `db_cliente`
+--
+CREATE DATABASE IF NOT EXISTS `db_cliente` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_cliente`;
+--
+-- Banco de dados: `db_clientes`
+--
+CREATE DATABASE IF NOT EXISTS `db_clientes` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_clientes`;
+--
+-- Banco de dados: `db_lista_clientes`
+--
+CREATE DATABASE IF NOT EXISTS `db_lista_clientes` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `db_lista_clientes`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `id` int(11) NOT NULL,
+  `nome1` varchar(30) NOT NULL,
+  `telefone` int(11) NOT NULL,
+  `endereco` varchar(40) NOT NULL,
+  `numero` int(11) NOT NULL,
+  `cidade` varchar(10) NOT NULL,
+  `estado` varchar(10) NOT NULL,
+  `pais` varchar(10) NOT NULL,
+  `cep` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nome1`, `telefone`, `endereco`, `numero`, `cidade`, `estado`, `pais`, `cep`) VALUES
+(35, 'zzzzzzzzzz', 0, 'Rua Jovelino Selva', 1111, 'Recife', 'PE', 'Brasil', 50850),
+(36, 'Wilhams', 2147483647, 'Rua Jovelino Selva', 0, 'Recife', 'PE', 'Brasil', 50850),
+(37, 'Mark', 99999999, '', 0, '', '', '', 0),
+(38, 'Mark', 44444, '', 0, '', '', '', 0),
+(39, 'Mark', 0, '123456789012345678', 0, '', '', '', 0),
+(40, 'Antonio', 0, 'fdgfdgfdg', 0, 'dfgdfgfdg', 'fdgdfgfd', 'dfgdfg', 0),
+(42, 'Olávio', 2147483647, 'Rua Jovelino Selva', 102, 'Recife', 'PE', 'Brasil', 50850),
+(43, 'gkmgm', 0, 'mghm', 0, 'fdsfddsfmm', 'sdfdsfd', 'fasfd', 471717),
+(45, 'Samuel Rosa', 0, '123456789012345', 0, 'Recife', 'PE', 'Brasil', 50850),
+(49, 'Astolfo Na', 0, 'Rua Jovelino Selva', 0, 'Recife', 'PE', 'Brasil', 50850),
+(50, 'zzzzzzzzzz', 0, 'Rua Jovelino Selva', 0, 'Recife', 'PE', 'Brasil', 60811),
+(51, 'Wilhams', 0, 'Rua Jovelino Selva', 0, 'Recife', 'PE', 'Brasil', 50850),
+(52, 'Franscisco de Assis', 0, 'fdgdfgdf', 0, 'bvxcbb', 'bvbvbvb', 'Brasil', 50850),
+(53, 'zzzzzzzzzz', 0, 'Rua Jovelino Selva', 0, 'Recife', 'PE', 'Brasil', 50850);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(30) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `senha` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `usuario`
+--
+
+INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`) VALUES
+(8, 'Wilhams', 'Wilhamsmeira@gmail.c', 'dfdsfdsf'),
+(9, 'olaOLAol', 'ola@ola', 'aa'),
+(16, 'Wilhams', 'wilhams@gmail.com', ''),
+(19, 'Wilhams', 'guerreiro@corinthian', ''),
+(20, 'Suanny Dos Meira', 'suanny.silvestri@hot', 'suanny'),
+(22, 'Wilhams', 'wilhams.dev@gmail.co', 'aa'),
+(24, 'Wilhams', 'Mc2@MC2', 'aa'),
+(25, 'lili', 'l@li', 'li'),
+(26, 'jose', 'jose@jose', 'qq'),
+(28, 'Wilhams', 'WW@WW', 'aa'),
+(29, '', '', ''),
+(34, 'Wilhams', 'gg@gg', 'aa'),
+(37, 'Wilhams', 'wilhams.dev@gm', 'aa'),
+(39, 'Paulo', 'paulo@paulo', 'aa'),
+(41, 'Paulo', 'paulo@paulo1', 'wer'),
+(43, 'Armando Xavier', 'xv@xv', 'aa'),
+(46, 'Berenice', 'b@b', 'aa'),
+(47, 'Wilhams', 'WW@WWt', 'aa'),
+(48, 'Wilhams', 'WW@WWtfgsg', 'as'),
+(49, 'Wilhams', 'asd@asd', 'aa'),
+(50, 'Wilhams', 'asdasd@asdas', 'dsasd'),
+(51, 'jnfsdjfn', 'djfndjsf@jdndf', 'djsnfjsd'),
+(52, 'Paulo Rodrigo', 'pr@pr', 'aa'),
+(76, 'Wilhams', 'jkzxnbcjkzx@jnzxcvjz', 'xjklcnzxk'),
+(83, 'Wilhams', 'qq@qqq', 'aa'),
+(92, 'Olinda', 'oli2oli@oli', 'qq'),
+(93, 'Bernadete', 'bb@wer', 'ss'),
+(97, 'Wilhams', 'NN@NN', 'aa'),
+(98, 'Wilhams', 'wilhams.dev@g', 'aa');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+
+--
+-- AUTO_INCREMENT de tabela `usuario`
+--
+ALTER TABLE `usuario`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=99;
+--
+-- Banco de dados: `empresa_estoque`
+--
+CREATE DATABASE IF NOT EXISTS `empresa_estoque` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `empresa_estoque`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `categoria`
+--
+
+CREATE TABLE `categoria` (
+  `id_categoria` int(11) NOT NULL,
+  `nome_categoria` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `categoria`
+--
+
+INSERT INTO `categoria` (`id_categoria`, `nome_categoria`) VALUES
+(6, 'hardaware_de_celular'),
+(8, 'DesKtop (Programas)'),
+(13, 'periféricos'),
+(14, 'Smartfones'),
+(15, 'periféricos');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `estoque`
+--
+
+CREATE TABLE `estoque` (
+  `id_estoque` int(11) NOT NULL,
+  `numeroproduto` int(11) NOT NULL,
+  `nomeproduto` varchar(50) NOT NULL,
+  `categoria` varchar(50) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `fornecedor` varchar(35) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `estoque`
+--
+
+INSERT INTO `estoque` (`id_estoque`, `numeroproduto`, `nomeproduto`, `categoria`, `quantidade`, `fornecedor`) VALUES
+(29, 3456, 'wwwwwwwwwwwwwwwwww', 'Periférico', 10, 'Fornecedor A'),
+(36, 34, 'Tablets SLIM', 'periféricos', 45, 'Forn_WML'),
+(37, 0, 'placa de video vks 34', 'Periférico', 67, 'Fornecedor B'),
+(38, 100, 'CPU de computador', 'periféricos', 45, 'System Forne');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `fornecedor`
+--
+
+CREATE TABLE `fornecedor` (
+  `id_fornecedor` int(11) NOT NULL,
+  `nome_forn` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `fornecedor`
+--
+
+INSERT INTO `fornecedor` (`id_fornecedor`, `nome_forn`) VALUES
+(1, 'Empresa WMJ'),
+(2, 'WJ Sites'),
+(3, 'Transportes Limitado'),
+(4, 'Fornecer À JaTo'),
+(13, 'Forn_WML'),
+(16, 'System Forne'),
+(17, ''),
+(18, ''),
+(19, 'WJ Sites'),
+(20, 'Forn_WML'),
+(21, ''),
+(22, 'System Forne');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `categoria`
+--
+ALTER TABLE `categoria`
+  ADD PRIMARY KEY (`id_categoria`);
+
+--
+-- Índices para tabela `estoque`
+--
+ALTER TABLE `estoque`
+  ADD PRIMARY KEY (`id_estoque`);
+
+--
+-- Índices para tabela `fornecedor`
+--
+ALTER TABLE `fornecedor`
+  ADD PRIMARY KEY (`id_fornecedor`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `categoria`
+--
+ALTER TABLE `categoria`
+  MODIFY `id_categoria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de tabela `estoque`
+--
+ALTER TABLE `estoque`
+  MODIFY `id_estoque` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
+
+--
+-- AUTO_INCREMENT de tabela `fornecedor`
+--
+ALTER TABLE `fornecedor`
+  MODIFY `id_fornecedor` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- Banco de dados: `funildevendas`
+--
+CREATE DATABASE IF NOT EXISTS `funildevendas` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `funildevendas`;
+--
+-- Banco de dados: `login`
+--
+CREATE DATABASE IF NOT EXISTS `login` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `login`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `start_date` datetime NOT NULL,
+  `last_date` datetime NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `stats` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Extraindo dados da tabela `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `user_id`, `title`, `start_date`, `last_date`, `description`, `stats`) VALUES
+(1, 1, 'a', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(2, 2, 'aa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(3, 2, 'aa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(4, 2, 'auhsdhusadhusad', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(5, 2, 'aaaaaaaaa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(6, 1, 'junior', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(7, 1, 'jonas', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(8, 8, 'oiiiiiiiiiiiiii', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(9, 8, 'yyyyyyyyyyyyyyyyyyy', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(10, 9, 'criei a tarefa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(11, 9, 'criei a tarefa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(12, 9, 'criei a tarefa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(13, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(14, 10, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(15, 10, 'criei a tarefa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(16, 10, 'criei hhhha tarefa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(17, 10, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(18, 10, 'Como colocar duas cores distintas em um chat, a cor do texto do usuário tem que ser x e a cor do texto do bot tem quer ser y', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(19, 10, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(20, 10, 'criei a tarefa', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(21, 10, 'tttttt', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(22, 10, 'oooooo', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(23, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(24, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(25, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(26, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(27, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(28, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(29, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(30, 10, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(31, 10, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(32, 10, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(33, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(34, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(35, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(36, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(37, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(38, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, ''),
+(39, 8, '', '0000-00-00 00:00:00', '0000-00-00 00:00:00', NULL, '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nome` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `senha` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
+
+--
+-- Extraindo dados da tabela `users`
+--
+
+INSERT INTO `users` (`id`, `nome`, `email`, `senha`) VALUES
+(1, 'junior', 'junior@a.a', 'aaaa'),
+(2, 'jonas', 'jonas@a.a', '111'),
+(3, 'Jonas', 'jonas@jonas.com', 'jonas'),
+(4, 'jonas', 'j@jonas.com', 'jonas'),
+(5, 'jonas', 'jj@jonas.com', 'aaaa'),
+(6, 'adada', 'ad@ada.a', '123'),
+(7, 'adada', 'aaa@ada.a', 'aaa'),
+(8, 'Wilhams', 'suanny.silvestri@hotmail.com', 'su'),
+(9, 'Wilhams', 'WW@WW', 'www'),
+(10, '', '', ''),
+(11, '', '', ''),
+(12, 'Wilhams', 'wilhamsmeira@gmail.com', 'rrr'),
+(13, '', '', ''),
+(14, '', '', ''),
+(15, '', '', ''),
+(16, '', '', ''),
+(17, 'Wilhams', '', ''),
+(18, 'Wilhams', '', ''),
+(19, '', '', ''),
+(20, 'Wilhams', 'wilhamsmeira@gmail.com', 'gggg'),
+(21, 'josé', 'jose@jose', 'as'),
+(22, '', '', '');
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- Índices para tabela `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`id`) USING BTREE;
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+
+--
+-- AUTO_INCREMENT de tabela `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- Banco de dados: `phpmyadmin`
+--
+CREATE DATABASE IF NOT EXISTS `phpmyadmin` DEFAULT CHARACTER SET utf8 COLLATE utf8_bin;
+USE `phpmyadmin`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__bookmark`
+--
+
+CREATE TABLE `pma__bookmark` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `dbase` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `user` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `label` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `query` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Bookmarks';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__central_columns`
+--
+
+CREATE TABLE `pma__central_columns` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_length` text COLLATE utf8_bin DEFAULT NULL,
+  `col_collation` varchar(64) COLLATE utf8_bin NOT NULL,
+  `col_isNull` tinyint(1) NOT NULL,
+  `col_extra` varchar(255) COLLATE utf8_bin DEFAULT '',
+  `col_default` text COLLATE utf8_bin DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Central list of columns';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__column_info`
+--
+
+CREATE TABLE `pma__column_info` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `column_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `comment` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `mimetype` varchar(255) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `input_transformation_options` varchar(255) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Column information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__designer_settings`
+--
+
+CREATE TABLE `pma__designer_settings` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `settings_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Settings related to Designer';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__export_templates`
+--
+
+CREATE TABLE `pma__export_templates` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `export_type` varchar(10) COLLATE utf8_bin NOT NULL,
+  `template_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `template_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved export templates';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__favorite`
+--
+
+CREATE TABLE `pma__favorite` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Favorite tables';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__history`
+--
+
+CREATE TABLE `pma__history` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp(),
+  `sqlquery` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='SQL history for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__navigationhiding`
+--
+
+CREATE TABLE `pma__navigationhiding` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `item_type` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Hidden items of navigation tree';
+
+--
+-- Extraindo dados da tabela `pma__navigationhiding`
+--
+
+INSERT INTO `pma__navigationhiding` (`username`, `item_name`, `item_type`, `db_name`, `table_name`) VALUES
+('root', 'users', 'table', 'login', '');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__pdf_pages`
+--
+
+CREATE TABLE `pma__pdf_pages` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `page_nr` int(10) UNSIGNED NOT NULL,
+  `page_descr` varchar(50) CHARACTER SET utf8 NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='PDF relation pages for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__recent`
+--
+
+CREATE TABLE `pma__recent` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tables` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Recently accessed tables';
+
+--
+-- Extraindo dados da tabela `pma__recent`
+--
+
+INSERT INTO `pma__recent` (`username`, `tables`) VALUES
+('root', '[{\"db\":\"db_lista_clientes\",\"table\":\"usuario\"},{\"db\":\"db_lista_clientes\",\"table\":\"clientes\"},{\"db\":\"registro\",\"table\":\"clientes\"},{\"db\":\"db_cadastro\",\"table\":\"tb_clientes\"},{\"db\":\"registro\",\"table\":\"tasks\"},{\"db\":\"empresa_estoque\",\"table\":\"estoque\"},{\"db\":\"empresa_estoque\",\"table\":\"categoria\"},{\"db\":\"empresa_estoque\",\"table\":\"fornecedor\"},{\"db\":\"agenda\",\"table\":\"produtos2\"},{\"db\":\"agenda\",\"table\":\"contatos\"}]');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__relation`
+--
+
+CREATE TABLE `pma__relation` (
+  `master_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `master_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_db` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_table` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `foreign_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Relation table';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__savedsearches`
+--
+
+CREATE TABLE `pma__savedsearches` (
+  `id` int(5) UNSIGNED NOT NULL,
+  `username` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `search_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Saved searches';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__table_coords`
+--
+
+CREATE TABLE `pma__table_coords` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `pdf_page_number` int(11) NOT NULL DEFAULT 0,
+  `x` float UNSIGNED NOT NULL DEFAULT 0,
+  `y` float UNSIGNED NOT NULL DEFAULT 0
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table coordinates for phpMyAdmin PDF output';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__table_info`
+--
+
+CREATE TABLE `pma__table_info` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT '',
+  `display_field` varchar(64) COLLATE utf8_bin NOT NULL DEFAULT ''
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Table information for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__table_uiprefs`
+--
+
+CREATE TABLE `pma__table_uiprefs` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `prefs` text COLLATE utf8_bin NOT NULL,
+  `last_update` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Tables'' UI preferences';
+
+--
+-- Extraindo dados da tabela `pma__table_uiprefs`
+--
+
+INSERT INTO `pma__table_uiprefs` (`username`, `db_name`, `table_name`, `prefs`, `last_update`) VALUES
+('root', 'db_cadastro', 'tb_clientes', '{\"sorted_col\":\"`id`  ASC\"}', '2020-07-05 16:32:36'),
+('root', 'db_lista_clientes', 'clientes', '[]', '2020-07-25 17:56:53'),
+('root', 'registro', 'tasks', '[]', '2020-06-28 15:07:46');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__tracking`
+--
+
+CREATE TABLE `pma__tracking` (
+  `db_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `table_name` varchar(64) COLLATE utf8_bin NOT NULL,
+  `version` int(10) UNSIGNED NOT NULL,
+  `date_created` datetime NOT NULL,
+  `date_updated` datetime NOT NULL,
+  `schema_snapshot` text COLLATE utf8_bin NOT NULL,
+  `schema_sql` text COLLATE utf8_bin DEFAULT NULL,
+  `data_sql` longtext COLLATE utf8_bin DEFAULT NULL,
+  `tracking` set('UPDATE','REPLACE','INSERT','DELETE','TRUNCATE','CREATE DATABASE','ALTER DATABASE','DROP DATABASE','CREATE TABLE','ALTER TABLE','RENAME TABLE','DROP TABLE','CREATE INDEX','DROP INDEX','CREATE VIEW','ALTER VIEW','DROP VIEW') COLLATE utf8_bin DEFAULT NULL,
+  `tracking_active` int(1) UNSIGNED NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Database changes tracking for phpMyAdmin';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__userconfig`
+--
+
+CREATE TABLE `pma__userconfig` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `timevalue` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `config_data` text COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User preferences storage for phpMyAdmin';
+
+--
+-- Extraindo dados da tabela `pma__userconfig`
+--
+
+INSERT INTO `pma__userconfig` (`username`, `timevalue`, `config_data`) VALUES
+('root', '2020-07-29 07:46:57', '{\"Console\\/Mode\":\"show\",\"lang\":\"pt\",\"Console\\/Height\":52.979282}');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__usergroups`
+--
+
+CREATE TABLE `pma__usergroups` (
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL,
+  `tab` varchar(64) COLLATE utf8_bin NOT NULL,
+  `allowed` enum('Y','N') COLLATE utf8_bin NOT NULL DEFAULT 'N'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='User groups with configured menu items';
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `pma__users`
+--
+
+CREATE TABLE `pma__users` (
+  `username` varchar(64) COLLATE utf8_bin NOT NULL,
+  `usergroup` varchar(64) COLLATE utf8_bin NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin COMMENT='Users and their assignments to user groups';
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `pma__central_columns`
+--
+ALTER TABLE `pma__central_columns`
+  ADD PRIMARY KEY (`db_name`,`col_name`);
+
+--
+-- Índices para tabela `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `db_name` (`db_name`,`table_name`,`column_name`);
+
+--
+-- Índices para tabela `pma__designer_settings`
+--
+ALTER TABLE `pma__designer_settings`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Índices para tabela `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_user_type_template` (`username`,`export_type`,`template_name`);
+
+--
+-- Índices para tabela `pma__favorite`
+--
+ALTER TABLE `pma__favorite`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Índices para tabela `pma__history`
+--
+ALTER TABLE `pma__history`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `username` (`username`,`db`,`table`,`timevalue`);
+
+--
+-- Índices para tabela `pma__navigationhiding`
+--
+ALTER TABLE `pma__navigationhiding`
+  ADD PRIMARY KEY (`username`,`item_name`,`item_type`,`db_name`,`table_name`);
+
+--
+-- Índices para tabela `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  ADD PRIMARY KEY (`page_nr`),
+  ADD KEY `db_name` (`db_name`);
+
+--
+-- Índices para tabela `pma__recent`
+--
+ALTER TABLE `pma__recent`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Índices para tabela `pma__relation`
+--
+ALTER TABLE `pma__relation`
+  ADD PRIMARY KEY (`master_db`,`master_table`,`master_field`),
+  ADD KEY `foreign_field` (`foreign_db`,`foreign_table`);
+
+--
+-- Índices para tabela `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `u_savedsearches_username_dbname` (`username`,`db_name`,`search_name`);
+
+--
+-- Índices para tabela `pma__table_coords`
+--
+ALTER TABLE `pma__table_coords`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`pdf_page_number`);
+
+--
+-- Índices para tabela `pma__table_info`
+--
+ALTER TABLE `pma__table_info`
+  ADD PRIMARY KEY (`db_name`,`table_name`);
+
+--
+-- Índices para tabela `pma__table_uiprefs`
+--
+ALTER TABLE `pma__table_uiprefs`
+  ADD PRIMARY KEY (`username`,`db_name`,`table_name`);
+
+--
+-- Índices para tabela `pma__tracking`
+--
+ALTER TABLE `pma__tracking`
+  ADD PRIMARY KEY (`db_name`,`table_name`,`version`);
+
+--
+-- Índices para tabela `pma__userconfig`
+--
+ALTER TABLE `pma__userconfig`
+  ADD PRIMARY KEY (`username`);
+
+--
+-- Índices para tabela `pma__usergroups`
+--
+ALTER TABLE `pma__usergroups`
+  ADD PRIMARY KEY (`usergroup`,`tab`,`allowed`);
+
+--
+-- Índices para tabela `pma__users`
+--
+ALTER TABLE `pma__users`
+  ADD PRIMARY KEY (`username`,`usergroup`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `pma__bookmark`
+--
+ALTER TABLE `pma__bookmark`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__column_info`
+--
+ALTER TABLE `pma__column_info`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__export_templates`
+--
+ALTER TABLE `pma__export_templates`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__history`
+--
+ALTER TABLE `pma__history`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__pdf_pages`
+--
+ALTER TABLE `pma__pdf_pages`
+  MODIFY `page_nr` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT de tabela `pma__savedsearches`
+--
+ALTER TABLE `pma__savedsearches`
+  MODIFY `id` int(5) UNSIGNED NOT NULL AUTO_INCREMENT;
+--
+-- Banco de dados: `registro`
+--
+CREATE DATABASE IF NOT EXISTS `registro` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `registro`;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `clientes`
+--
+
+CREATE TABLE `clientes` (
+  `name` varchar(30) NOT NULL,
+  `email` varchar(30) NOT NULL,
+  `senha` varchar(15) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `clientes`
+--
+
+INSERT INTO `clientes` (`name`, `email`, `senha`, `id`) VALUES
+('Wilhams', 'wilhamsmeira@gmail.com', 'ww', 1),
+('', '', '', 2),
+('', '', '', 3),
+('Wilhams', '', '', 4),
+('', '', '', 5),
+('Wilhams', '', '', 6),
+('Wilhams', '', '', 7),
+('', '', '', 8),
+('', '', '', 9);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tasks`
+--
+
+CREATE TABLE `tasks` (
+  `title` varchar(50) DEFAULT NULL,
+  `date_incio` varchar(8) DEFAULT NULL,
+  `date_end` varchar(8) DEFAULT NULL,
+  `descri` varchar(200) DEFAULT NULL,
+  `stats` varchar(10) DEFAULT NULL,
+  `id` int(11) NOT NULL,
+  `id_user` varchar(5) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tasks`
+--
+
+INSERT INTO `tasks` (`title`, `date_incio`, `date_end`, `descri`, `stats`, `id`, `id_user`) VALUES
+('sssssssssssss', '', '', '', 'Edite seu ', 7, NULL),
+('7777777777777777777777777777', '', ' ', '', 'Edite seu ', 20, NULL),
+('hhhhhhhhhhhhhhhhhhhhhhhhhhhh', '', ' ', '', 'Edite seu ', 29, NULL),
+('xxxxxxxxxxxxxxxxxxxxxxxxx', '', ' ', '', 'Edite seu ', 30, NULL),
+('Hello MC2', '', ' ', '', 'Edite seu ', 31, NULL),
+('tudo bem?', '', ' ', '', 'Edite seu ', 32, NULL),
+('Hello MC2', '', ' ', '', 'Edite seu ', 33, NULL),
+('', '', ' ', '', 'Edite seu ', 34, NULL),
+('aaaaaaaaaaaaaaaaaaaaaaa', '', ' ', '', 'Edite seu ', 35, NULL),
+('', '', ' ', '', 'Edite seu ', 36, NULL);
+
+--
+-- Índices para tabelas despejadas
+--
+
+--
+-- Índices para tabela `clientes`
+--
+ALTER TABLE `clientes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Índices para tabela `tasks`
+--
+ALTER TABLE `tasks`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT de tabelas despejadas
+--
+
+--
+-- AUTO_INCREMENT de tabela `clientes`
+--
+ALTER TABLE `clientes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de tabela `tasks`
+--
+ALTER TABLE `tasks`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+--
+-- Banco de dados: `test`
+--
+CREATE DATABASE IF NOT EXISTS `test` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `test`;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
