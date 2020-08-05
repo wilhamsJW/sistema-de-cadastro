@@ -2,6 +2,14 @@
 <?php session_start();  //inicialição var de sessão ?>
 
 <?php 
+  //proteção das páginas para que o usuário não acesse pela url o que vc não quer q ele veja ou seja vc deve proteger todas as páginas após o login
+  if ( !isset($_SESSION["id_user"])) {  //o uso do não lógico q é esse ponto de exclamação, verifica se a var não está definida, como realmente ela não vai estar vai ser true 
+    header("location:login2.php"); //e redirecionará o usuario pra a página desejada, porém se a var estiver configurada o usuário poderá acessala livremente, o que determina se ela vai tá configurada ou não
+  }                               //é justamente a ação do login pq só assim a session entra em ação e passa a ser definida ou setada ou configurada
+
+?>
+
+<?php 
   //verificação de email e senha
   if( isset($_POST["email"])) {
 
@@ -24,7 +32,7 @@
          //header("location: ../login2.php");   
     } else {
         //Rotina de saudação foi iniciada aqui pq a var $informacao tem todo o acesso ao banco de dados
-         $_SESSION["user"] = $informacao["name"]; 
+         $_SESSION["id_user"] = $informacao["id"]; 
          header("location: minhatarefa1.php");   
     }
 

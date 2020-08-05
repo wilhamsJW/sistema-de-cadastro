@@ -8,7 +8,7 @@
 
 <?php 
   //proteção das páginas para que o usuário não acesse pela url o que vc não quer q ele veja ou seja vc deve proteger todas as páginas após o login
-  if (!isset($_SESSION["user"])) {  //o uso do não lógico q é esse ponto de exclamação, verifica se a var não está definida, como realmente ela não vai estar vai ser true 
+  if (!isset($_SESSION["id_user"])) {  //o uso do não lógico q é esse ponto de exclamação, verifica se a var não está definida, como realmente ela não vai estar vai ser true 
     header("location:login2.php"); //e redirecionará o usuario pra a página desejada, porém se a var estiver configurada o usuário poderá acessala livremente, o que determina se ela vai tá configurada ou não
   }                               //é justamente a ação do login pq só assim a session entra em ação e passa a ser definida ou setada ou configurada
 ?>
@@ -42,9 +42,9 @@
   <div class="">
 <?php 
   //rotina de saudação, a session está sendo configurada no arquivo loginsenha, lá a session obteve acesso ao banco de dados e me retornar o que eu quiser
-      if (isset($_SESSION["user"])) {
+      if (isset($_SESSION["id_user"])) {
     ?>
-      <label for="inputEmail3" class="col-form-label"><h3><?php echo ' Tarefas de, ' . $_SESSION["user"] . '!' ; ?></h3></label>
+      <label for="inputEmail3" class="col-form-label"><h3><?php echo ' Tarefas de, ' . $_SESSION["id_user"] . '!' ; ?></h3></label>
    <?php
    }
     ?>
@@ -72,7 +72,7 @@
     </thead>
     <tbody>
       <?php
-            while($registro =  mysqli_fetch_assoc($acesso)) { 
+            while($registro =  mysqli_fetch_assoc($acesso)) { //$registro =  mysqli_fetch_assoc($acesso) --> transformei $acesso em array pra poder pegar esses dados
               $id = $registro['id']; //está me enviando a id pela url do botão delete
           ?>
             <tr> <!--todos esses valores são da tabela no db, estou mostrando eles, está sendo mostrado em uma tabela ao usuário -->             
@@ -81,7 +81,7 @@
               <td><?php echo $registro['date_end'] ?></td>
               <td><?php echo $registro['descri'] ?></td>      
               <td><?php echo $registro['stats'] ?></td>  
-              <td><?php echo $_SESSION["user"] ?></td>
+              <td><?php echo $_SESSION["id_user"] ?></td>
               <!--Button Edit-->
               <td>
               <a href="modal.php?id=<?php echo $id ?>"  style="color:blue" ><button class="btn btn-outline-primary"><i class="fas fa-edit"></i></button></a>
