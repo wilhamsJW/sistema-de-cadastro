@@ -1,3 +1,9 @@
+<?php session_start();
+if (!isset($_SESSION['user'])) {
+    header("location:login.php");
+}
+?>
+ 
  <?php
     include_once '../Backend/Database/connection.php';
     include_once '../Backend/Database/update.php';

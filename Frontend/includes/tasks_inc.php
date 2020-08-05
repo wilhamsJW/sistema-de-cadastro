@@ -63,7 +63,7 @@ if (!isset($_SESSION['user'])) {
                         <h4 style="color: black;font-weight:bold;margin-top:20px"><i class="fas fa-tasks"></i>&nbsp;Gerenciador de tarefas</h4>
                         <div class="card text-white bg-primary mb-3">
                             <div class="card-header"  style="color: #91121d;">
-                                <h2><i class="fas fa-book-reader"></i>&nbsp;Título:</h2>
+                                <h2  style="font-weight: bold;"><i class="fas fa-book-reader"></i>&nbsp;Título:</h2>
                                 <h5 class="card-text" style="color: white;"><?php echo $title ?></h5>
                             </div>
                             <div class="card-body">                   

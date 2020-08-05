@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<!--< ?php var_dump($_SESSION['user']); ?>-->
-
 <head>
   <!-- Meta tags Obrigatórias -->
   <meta charset="utf-8">

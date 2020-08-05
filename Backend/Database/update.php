@@ -9,7 +9,7 @@ if (isset($_POST['id'])) {
     $last_date   = filter_input(INPUT_POST, 'last_date', FILTER_SANITIZE_SPECIAL_CHARS);
     $user        = filter_input(INPUT_POST, 'user', FILTER_SANITIZE_SPECIAL_CHARS);
     $stats       = filter_input(INPUT_POST, 'stats', FILTER_SANITIZE_SPECIAL_CHARS);
-    
+
 
     $sql = "UPDATE `tasks` SET `title`='$title', `description`='$description', `start_date`='$start_date', `last_date`='$last_date', `user`='$user', `stats`='$stats' WHERE id = $id";
     $query = mysqli_query($conecta, $sql);
@@ -24,5 +24,65 @@ if (isset($_POST['id'])) {
         header("location:../../Frontend/tasks.php");
     }
 }
+
+?>
+
+<?php
+include_once 'connection.php';
+
+if (isset($_POST['code'])) {
+    
+    $code = filter_input(INPUT_POST, 'code', FILTER_SANITIZE_NUMBER_INT);
+    if ($code == 1) {
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $nome = filter_input(INPUT_POST, 'nome', FILTER_SANITIZE_SPECIAL_CHARS);
+        $sql = "UPDATE `users` SET `nome`='$nome' WHERE id = $id ";
+        $query = mysqli_query($conecta, $sql);
+        if (!$query) {
+            header("location: nadaver.php");
+            echo "Erro na alteração!";
+        }
+    }
+}
+
+if(isset($_POST['cod'])){
+
+$cod = filter_input(INPUT_POST, 'cod', FILTER_SANITIZE_NUMBER_INT);
+if ($cod == 2 ) {
+    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+    $sql = "UPDATE `users` SET `email`='$email' WHERE id = $id ";
+    $query = mysqli_query($conecta, $sql);
+    if (!$query) {
+        echo "Erro na alteração!";
+    }
+}
+}
+
+if(isset($_POST['co'])){
+
+$co = filter_input(INPUT_POST, 'co', FILTER_SANITIZE_NUMBER_INT);
+if ($co == 3) {
+    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
+    $sql = "UPDATE `users` SET `senha`='$senha' WHERE id = $id ";
+    $query = mysqli_query($conecta, $sql);
+    if (!$query) {
+        echo "Erro na alteração!";
+    }
+}
+}
+
+/*
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_SPECIAL_CHARS);
+    $senha = filter_input(INPUT_POST, 'senha', FILTER_SANITIZE_SPECIAL_CHARS);
+
+    $sql = "UPDATE `users` SET `nome`='$nome', `email`='$email', `senha`='$senha' WHERE id = $id ";
+    $query = mysqli_query($conecta, $sql);
+
+    if(!$query){
+       echo "Erro na alteração";
+    }
+}*/
 
 ?>
