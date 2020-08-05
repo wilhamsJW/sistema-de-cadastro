@@ -26,7 +26,7 @@
 
                                 <?php if (isset($msg3)) { ?>
                                     <div class="alert alert-success" role="alert">
-                                        <?php echo $msg3 ?>
+                                        <?php echo $msg3 ?> <a href="login.php">Fazer Login agora!</a>
                                     </div>
                                 <?php } ?> <!-- end alert message -->
 
@@ -59,12 +59,6 @@
                                         <a class="font-weight-bold">Cadastrar</a>
                                     </button>
                                 </div>
-                                <div class="form-group">
-                                    <a href="#" class="btn btn-primary btn-block py-2">
-                                        <span class="font-weight-bold" id="font"><i class="fab fa-facebook"></i>&nbsp;Cadastrar com Facebook</span>
-                                    </a>
-                                </div>
-
                                 <div id="font">Tem um conta?&nbsp;<a href="login.php"><i class="fas fa-sign-in-alt"></i>&nbsp;Conecte-se</a></div>
                             </fieldset>
                         </form>
