@@ -33,7 +33,7 @@
                                  <div class="form-group">
                                      <div class="mb-3">
                                          <label for="validationCustom01"><i class="fas fa-book-reader"></i>&nbsp;Título</label>
-                                         <input type="text" name="title" value="<?php echo $title ?>" class="form-control" maxlength="20" id="validationCustom01" placeholder="Dê um título a sua tarefa" required>
+                                         <input type="text" name="title" value="<?php echo $title ?>" class="form-control" maxlength="30" id="validationCustom01" placeholder="Dê um título a sua tarefa" required>
                                          <div class="invalid-feedback">
                                              Por favor, digite o título da sua tarefa.
                                          </div>
@@ -46,7 +46,7 @@
                                  <div class="form-group">
                                      <div class="mb-3">
                                          <label for="validationCustom01"><i class="fas fa-keyboard"></i>&nbsp;Descrição</label>
-                                         <input type="text" name="description" value="<?php echo $description ?>" class="form-control" maxlength="50" id="validationCustom01" placeholder=" Até 100 caracteres" required>
+                                         <input type="text" name="description" value="<?php echo $description ?>" class="form-control" maxlength="200" id="validationCustom01" placeholder=" Até 200 caracteres" required>
                                          <div class="invalid-feedback">
                                              Por favor, descreva sua tarefa.
                                          </div>

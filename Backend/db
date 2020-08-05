@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 05-Ago-2020 às 06:43
+-- Tempo de geração: 05-Ago-2020 às 14:49
 -- Versão do servidor: 10.4.11-MariaDB
 -- versão do PHP: 7.4.6
 
@@ -30,24 +30,13 @@ SET time_zone = "+00:00";
 CREATE TABLE `tasks` (
   `user_id` int(11) NOT NULL,
   `title` varchar(50) NOT NULL,
-  `description` varchar(100) NOT NULL,
+  `description` varchar(200) NOT NULL,
   `start_date` varchar(20) NOT NULL,
   `last_date` varchar(20) NOT NULL,
   `user` varchar(20) NOT NULL,
   `stats` varchar(30) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `tasks`
---
-
-INSERT INTO `tasks` (`user_id`, `title`, `description`, `start_date`, `last_date`, `user`, `stats`, `id`) VALUES
-(0, 'Hello MC2', 'A MC2 Performance of', '8888-08-08', '8888-08-08', 'wilahms', 'em andamento', 1),
-(0, 'Mudar cor da tela lo', 'escolha uma cor que mais se parece com o restante do site', '2021-01-01', '2021-02-02', 'Wilhams', 'iniciado', 2),
-(0, 'Fazer API', 'Faça uma API utilizando node e KNEX', '2222-02-22', '2222-02-22', 'Wilhams', 'Feito 50%', 4),
-(0, 'fotos', 'mude todas para png', '2222-02-22', '2222-02-22', 'wilhams', 'Feito 25%', 5),
-(1, 'Fazer frontend', 'faça o front com react', '2222-02-22', '2222-02-22', 'Wilhams', 'recebido', 6);
 
 -- --------------------------------------------------------
 
@@ -57,19 +46,10 @@ INSERT INTO `tasks` (`user_id`, `title`, `description`, `start_date`, `last_date
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
-  `nome` varchar(15) NOT NULL,
-  `email` varchar(20) NOT NULL,
-  `senha` varchar(20) NOT NULL
+  `nome` varchar(25) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `senha` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Extraindo dados da tabela `users`
---
-
-INSERT INTO `users` (`id`, `nome`, `email`, `senha`) VALUES
-(1, 'Wilhams', 'wilhams.dev@gmail.co', 'aa'),
-(2, 'Gertrudes', 'Mc2@MC2', 'aa'),
-(3, 'Olávio', 'guerreiro@corinthian', 'aa');
 
 --
 -- Índices para tabelas despejadas
@@ -85,7 +65,8 @@ ALTER TABLE `tasks`
 -- Índices para tabela `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- AUTO_INCREMENT de tabelas despejadas
@@ -95,13 +76,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de tabela `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de tabela `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

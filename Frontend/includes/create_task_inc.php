@@ -35,7 +35,7 @@ if (!isset($_SESSION['user'])) {
                         <div class="form-group">
                             <div class="col-md-9 mb-3">
                                 <label for="validationCustom01"><i class="fas fa-keyboard"></i>&nbsp;Descrição</label>
-                                <input type="text" class="form-control" maxlength="60" id="validationCustom01" placeholder=" Até 100 caracteres" name="description" required>
+                                <input type="text" class="form-control" maxlength="200" id="validationCustom01" placeholder=" Até 200 caracteres" name="description" required>
                                 <div class="invalid-feedback">
                                     Por favor, descreva sua tarefa.
                                 </div>
