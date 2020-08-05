@@ -5,7 +5,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse">
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ml-auto">
                     
                     <li class="nav-item active">
@@ -23,10 +23,5 @@
     </nav>
 </div>
 
-<!--
-<srcipt type="text/javascript" src="js/mask_jquery.js"></srcipt>
-<script type="text/javascript" src="js/mask.js"></script> -->
-
-<!-- Foi obrigatório colocar o include footer, pois o Jquery precisa ser iniciado tanto no menu como na página clientes.php para que o modal delete consiga enviar a $id para o db -->
-
+<!-- Foi obrigatório colocar o include footer, pois o Jquery precisa ser iniciado tanto no menu como na página tasks.php para que o modal delete consiga enviar a $id para o db -->
 <?php include_once 'footer_inc.php'; ?>

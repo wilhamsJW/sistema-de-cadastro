@@ -14,7 +14,7 @@ if (!isset($_SESSION['user'])) {
 <div class="container">
 
     <form action="../Backend/Database/create.php" method="POST" class="needs-validation" novalidate>
-        <fieldset class="formulario">
+        <fieldset class="">
             <div class="row bg-light">
                 <div class="col-md-3">
                 </div>
@@ -28,8 +28,6 @@ if (!isset($_SESSION['user'])) {
                                 <?php echo $msg5 ?>
                             </div>
                         <?php } ?>
-
-                       
                         <!-- end alerts -->
 
                         <div class="card-body" style="font-weight: bold;">
@@ -64,7 +62,7 @@ if (!isset($_SESSION['user'])) {
                             <div class="form-group">
                                 <div class="col-md-9 mb-3">
                                     <label for="validationCustom01"><i class="fas fa-calendar-minus"></i>&nbsp;Data inicial</label>
-                                    <input type="date" name="start_date" class="form-control" placeholder="Insira a data" aria-label="Insira a data" aria-describedby="button-addon2">
+                                    <input type="date" name="start_date" class="form-control" placeholder="Insira a data" aria-label="Insira a data" aria-describedby="button-addon2" required>
                                     <div class="invalid-feedback">
                                         Por favor, informe uma data válida!
                                     </div>
@@ -77,7 +75,7 @@ if (!isset($_SESSION['user'])) {
                             <div class="form-group">
                                 <div class="col-md-9 mb-3">
                                     <label for="validationCustom01"><i class="fas fa-calendar-minus"></i></i>&nbsp;Data final</label>
-                                    <input type="date" name="last_date" class="form-control" placeholder="Insira a data" aria-label="Insira a data" aria-describedby="button-addon2">
+                                    <input type="date" name="last_date" class="form-control" placeholder="Insira a data" aria-label="Insira a data" aria-describedby="button-addon2" required>
                                     <div class="invalid-feedback">
                                         Por favor, informe uma data!
                                     </div>
