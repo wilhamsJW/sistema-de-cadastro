@@ -14,21 +14,12 @@ if (!isset($_SESSION['user'])) {
 <div class="container">
 
     <form action="../Backend/Database/create.php" method="POST" class="needs-validation" novalidate>
-        <fieldset class="">
-            <div class="row bg-light">
+            <div class="form-group bg-light">
                 <div class="col-md-3">
                 </div>
                 <div class="col">
                     <div class="card text-black bg- mb-3" style="color:black">
-                        <h3 style="padding: 20px;">Criar nova tarefa</h3>
-
-                        <!-- alerts -->
-                        <?php if (isset($msg5)) { ?>
-                            <div class="alert alert-danger" role="alert">
-                                <?php echo $msg5 ?>
-                            </div>
-                        <?php } ?>
-                        <!-- end alerts -->
+                        <h3 style="padding: 20px;"><i class="fas fa-thumbtack"></i>&nbsp;Criar nova tarefa</h3>
 
                         <div class="card-body" style="font-weight: bold;">
                             <div class="form-group">
@@ -90,7 +81,7 @@ if (!isset($_SESSION['user'])) {
                                     <label for="validationCustom01"><i class="fas fa-user"></i>&nbsp;Usuário</label>
                                     <input type="text" class="form-control" maxlength="20" id="validationCustom01" placeholder="Coloque seu nome" name="user" required>
                                     <div class="invalid-feedback">
-                                        Por favor, informe seu nome!
+                                        Por favor, informe o usuário!
                                     </div>
                                     <div class="valid-feedback">
                                         Tudo certo!
@@ -104,7 +95,7 @@ if (!isset($_SESSION['user'])) {
                                     <div class="input-group mb-3">
                                         <div class="input-group-prepend">
                                         </div>
-                                        <select name="stats" class="custom-select" id="inputGroupSelect01">
+                                        <select name="stats" class="custom-select" id="inputGroupSelect01" required>
                                             <option selected>Qual o status da sua tarefa?</option>
                                             <option value="recebido">Recebido</option>
                                             <option value="iniciado">Iniciado</option>
@@ -113,12 +104,6 @@ if (!isset($_SESSION['user'])) {
                                             <option value="Feito 75%">Feito 75%</option>
                                             <option value="100% Concluído!">100% Concluído!</option>
                                         </select>
-                                    </div>
-                                    <div class="invalid-feedback">
-                                        Por favor, digite o nome do cliente.
-                                    </div>
-                                    <div class="valid-feedback">
-                                        Tudo certo!
                                     </div>
                                 </div>
                             </div>
@@ -135,6 +120,6 @@ if (!isset($_SESSION['user'])) {
                 </div>
 
             </div>
-        </fieldset>
+        
     </form>
 </div>

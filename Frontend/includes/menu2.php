@@ -9,10 +9,10 @@
                 <ul class="navbar-nav ml-auto">
                     
                     <li class="nav-item active">
-                        <a class="nav-link" href="tasks.php" id="nav1"><i class="far fa-hand-point-left"></i>&nbsp;Back<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="tasks.php" title="voltar" id="nav1"><i class="far fa-hand-point-left"></i>&nbsp;Back<span class="sr-only">(current)</span></a>
                     </li> 
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php" id="nav2"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</a>
+                        <a class="nav-link" href="logout.php" title="sair" id="nav2"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</a>
                     </li>         
                 </ul>
             </div>

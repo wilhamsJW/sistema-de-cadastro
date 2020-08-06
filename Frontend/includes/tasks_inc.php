@@ -64,6 +64,13 @@ if (!isset($_SESSION['user'])) {
                         <div class="card text-white bg-primary mb-3">
                             <div class="card-header"  style="color: #91121d;">
                                 <h2  style="font-weight: bold;"><i class="fas fa-book-reader"></i>&nbsp;Título:</h2>
+                                <div style="text-align: right;color:bisque">
+                                        <!--Button Create, Update and delete-->
+                                        <a href="create_task.php" role="button" title="criar tarefa" class="btn btn-outline-light"><i class="fas fa-plus-circle"></i></a>
+                                        <a href="edit.php?id=<?php echo $id ?>" role="button" title="editar" class="btn btn-outline-warning"><i class="fas fa-edit"></i></a>
+                                        <a href="banco_de_dados/delete.php?id=<?php echo $id ?>" title="excluir" data-toggle="modal" data-target="#Modaledit" data-whatever="<?php echo $id ?>" style="color:tomato"><button class="btn btn-outline-danger"><i class="far fa-trash-alt"></i></button></a>
+                                        <!-- end button -->
+                                    </div>
                                 <h5 class="card-text" style="color: white;"><?php echo $title ?></h5>
                             </div>
                             <div class="card-body">                   

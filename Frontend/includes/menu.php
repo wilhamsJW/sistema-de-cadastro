@@ -9,13 +9,13 @@
                 <ul class="navbar-nav ml-auto">
                     
                     <li class="nav-item active">
-                        <a class="nav-link" href="create_task.php" id="nav1"><i class="fas fa-user-check"></i>&nbsp;Create task<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="create_task.php" title="Criar tarefa" id="nav1"><i class="fas fa-thumbtack"></i>&nbsp;Create task<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="settings.php" id="nav1"><i class="fas fa-cog"></i>&nbsp;Settings<span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="settings.php" title="configurações" id="nav1"><i class="fas fa-cog"></i>&nbsp;Settings<span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="logout.php" id="nav2"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</a>
+                        <a class="nav-link" href="logout.php" title="sair" id="nav2"><i class="fas fa-sign-out-alt"></i>&nbsp;Logout</a>
                     </li>         
                 </ul>
             </div>
