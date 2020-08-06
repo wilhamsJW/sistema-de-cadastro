@@ -17,8 +17,8 @@ $co = "3";
     <?php } ?>
 
     <div class="row py-5">
-        <div class="col- col-md-4 col-sm-12"></div>
-        <div class=" col- col-md-4 col-sm-12">
+        <div class="col- col-md-2 col-sm-12"></div>
+        <div class=" col- col-md-8 col-sm-12">
             <div class="card text-white bg-primary mb-3">
                 <h3 class="card-header"><i class="fas fa-exchange-alt"></i>&nbsp;Alterar usuário e-mail ou senha</h3>
 
@@ -62,6 +62,6 @@ $co = "3";
                     </form>
                 </div>
             </div>
-            <div class="col-md-4"></div>
+            <div class="col-md-2"></div>
         </div>
     </div>

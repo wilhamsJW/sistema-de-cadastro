@@ -36,8 +36,8 @@ if (isset($_POST["nome"])) {
 
 <?php
 include_once 'connection.php';
-$id_page = $_POST['id_page'];
-
+//$id_page = $_POST['id_page'];
+$id_page = filter_input(INPUT_POST, 'id_page', FILTER_SANITIZE_NUMBER_INT);
 if ($id_page == 2) {
   
     if (isset($_POST['title'])) {
