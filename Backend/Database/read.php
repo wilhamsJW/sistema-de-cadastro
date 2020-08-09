@@ -34,8 +34,7 @@ if (isset($_POST['msg'])) {
             $informacao = mysqli_fetch_assoc($query);
 
             if (empty($informacao)) {
-                $mensagem = "Verifique se senha e email estão corretos!";
-                //header("location: ../login2.php");   
+                $mensagem = "Verifique se senha e email estão corretos!";   
             } else {
                 //Rotina de saudação iniciada aqui
                 $_SESSION['user'] = $informacao["nome"];

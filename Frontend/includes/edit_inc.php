@@ -8,6 +8,7 @@ if (!isset($_SESSION['user'])) {
 include_once '../Backend/Database/connection.php';
 include_once '../Backend/Database/update.php';
 
+$edit = 0;
 $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
 $sql = "SELECT * FROM tasks WHERE id = $id";
 $query = mysqli_query($conecta, $sql);
@@ -40,6 +41,7 @@ while ($array = mysqli_fetch_assoc($query)) {
                                     <div class="mb-3">
                                         <label for="validationCustom01"><i class="fas fa-book-reader"></i>&nbsp;Título</label>
                                         <input type="text" name="title" value="<?php echo $title ?>" class="form-control" maxlength="30" id="validationCustom01" placeholder="Dê um título a sua tarefa" required>
+                                        <input name="edit" value="<?php echo $edit ?>">
                                         <div class="invalid-feedback">
                                             Por favor, digite o título da sua tarefa.
                                         </div>
